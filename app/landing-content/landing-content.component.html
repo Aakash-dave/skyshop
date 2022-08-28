@@ -1,0 +1,31 @@
+<mat-drawer-container class="sideNavContainer" autosize>
+  <mat-drawer #sidenav class="sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <ng-container *ngFor="let item of _products_ | async">
+      <mat-card class="landing-products">
+        <img (click)="openProduct()" mat-card-image src="/assets/{{item.category}}/{{item.url1}}" alt="Oops!">
+        <mat-card-header>
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{item.short_desc}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-mini-fab color="primary">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+          <!-- <button mat-mini-fab color="primary"><mat-icon>stars</mat-icon></button> -->
+          <button mat-mini-fab color="primary" class="product_rating">
+            <mat-icon>star_half</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </div>
+</mat-drawer-container>

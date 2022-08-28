@@ -1,0 +1,18 @@
+.productPage_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: repeat(1, -1fr);
+}
+
+.productPage_content_left {
+    background-color: red;
+    grid-column: 1/2;
+    grid-row: auto;
+
+}
+
+.productPage_content_right {
+    background-color: pink;
+    grid-column: 2/4;
+    grid-row: auto;
+}

@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Let's get you started...</h1><br>
+
+<div mat-dialog-content class="mat_dialog_content">
+    <label class="text-base">Login with basic details.</label><br><br>
+    <form [formGroup]="logonForm" (ngSubmit)="Logon_submit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Your name</mat-label>
+            <input matInput id="user_full_name" #user_full_name formControlName="user_full_name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Your country</mat-label>
+            <input matInput id="user_country" #user_country formControlName="user_country">
+        </mat-form-field>
+        <br>
+        <button mat-button color="primary" type="submit" [disabled]="user_full_name.value.length==0 || user_country.value.length==0">Login</button>
+        <br><br>
+        <hr>
+        <br>
+        <label class="text-base">Loging as guest, Choose your Avatar.</label>
+        <br><br>
+        <section class="avtar_section">
+            <button mat-fab color="accent" (click)="selected_avtar('The Recruiter')" id="btn1"
+                aria-label="The Recruiter">
+                <mat-icon class="text-green-900">support_agent</mat-icon>
+            </button>
+            <button mat-fab color="warn" (click)="selected_avtar('Just a tourist')" id="btn2"
+                aria-label="Just a tourist">
+                <mat-icon class="text-white-900">face</mat-icon>
+            </button>
+            <button mat-fab color="accent" (click)="selected_avtar('An IT guy')" id="btn3" aria-label="An IT guy">
+                <mat-icon>sentiment_very_satisfied </mat-icon>
+            </button>
+            <button mat-fab color="warn" (click)="selected_avtar('Hothead')" id="btn4" aria-label="Hothead">
+                <mat-icon>mood_bad</mat-icon>
+            </button>
+            <button mat-fab color="primary" (click)="selected_avtar('Client')" id="btn5" aria-label="Client">
+                <mat-icon>monetization_on</mat-icon>
+            </button>
+            <br>
+        </section>
+        <div class="avtar_name">
+            <mat-icon class="play_arrow">play_arrow</mat-icon>
+            <label class="text-lg">{{AvtarLabel$}}</label>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="primary" [disabled]="AvtarLabel$==null">Avatar login</button>
+    <button mat-button color="primary" mat-dialog-close>Close</button>
+</div>

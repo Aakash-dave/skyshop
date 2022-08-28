@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="columns-3">
+
+    <div class="w-full">
+        <button mat-icon-button aria-label="menu icon" #menu id="menu" (click)="menuClicked()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="brand_name">SkyShop</span>
+    </div>
+
+    <div class="w-full">
+        <form>
+            <mat-form-field appearance="standard">
+                <mat-label>Search products, brands</mat-label>
+                <input type="text" matInput [formControl]="searchInput" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option value="Glasses">Glasses</mat-option>
+                    <mat-option value="Caps">Caps</mat-option>
+                    <mat-option value="Gloves">Gloves</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <button mat-mini-fab color="primary"><mat-icon>search</mat-icon></button>
+        </form>
+    </div>
+
+    <div class="w-full profile_part">
+        <button mat-icon-button aria-label="profile icon">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </div>
+
+</mat-toolbar>
