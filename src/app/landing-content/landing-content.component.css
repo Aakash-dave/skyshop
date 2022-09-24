@@ -1,0 +1,44 @@
+.sideNavContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav {
+  padding: 20px;
+}
+
+.sidenav-content {
+  /* height: 100%; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-row: auto;
+}
+
+mat-drawer {
+  width: 20%;
+}
+
+.product_rating {
+  float:right;
+}
+
+.mat-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card-header{
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+.mat-card-content{
+  flex-grow: 1;
+  overflow: auto;
+  }
+
+.mat-card-image {
+margin: 0 0 10px 0;
+}

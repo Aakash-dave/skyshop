@@ -1,0 +1,139 @@
+/* main img and details section */
+
+.productPage_container {
+    display: grid;
+    grid-template-columns: 500px 100px 1fr;
+    grid-template-rows: repeat(1, 1fr);
+    margin: 1%;
+}
+
+.productPage_content_left {
+    /* background-color: blue; */
+    grid-column: 1/2;
+    grid-row: auto;
+    max-width: 498px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.productPage_content_center {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: auto;
+    border-left: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    /* max-width: 100px; */
+}
+
+.productPage_content_right {
+    /* background-color: pink; */
+    grid-column: 3/4;
+    grid-row: auto;
+    padding-top: 8px;
+    padding-left: 15px;
+    border-left: 1px solid lightgray;
+    max-width: 75%;
+}
+
+/* for images */
+
+.smallImges {
+    max-width: 99px;
+    margin-top: 1px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid gray;
+}
+
+.selected_image_border {
+    border: 2px solid rgb(104, 104, 205);
+    box-shadow: 0px 0px 8px 1px;
+}
+
+/* .mat-icon {
+    font-size: 10px;
+} */
+
+ul {
+    list-style: unset;
+}
+
+.desc_width {
+    max-width: 90ch;
+}
+
+.rating_star {
+    font-size: 19px;
+    top: 2px;
+    position: relative;
+}
+
+.star_box {
+    line-height: normal;
+}
+
+.h2_margin {
+    margin: unset;
+}
+
+
+/* purchase button */
+
+.purchase_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 19% 1fr 1fr;
+}
+
+
+.buy_btn_left{
+    /* background: violet; */
+    margin-top: 1%;
+}
+
+.buy_btn_right{
+    /* background: aquamarine; */
+}
+
+.buy_btn_left > button {
+    height: 60px;
+    width: 28%;
+    margin: 5px 4px auto 1cm;
+    margin-right: 2px;
+    color: white !important;
+    font-weight: 400 !important;
+}
+
+.buy_btn_left > mat-icon {
+    transform: scale(1.0);
+}
+
+.add_btn {
+    background-color: hsl(47deg 85% 50%);
+}
+
+.interested_section{
+    /* background-color: blue; */
+    width: 100%;
+    grid-column: 1 / span 2;
+    margin-bottom: 2%;
+}
+
+.interested_section > .interested_cards {
+    display: inline-block;
+    width: 28%;
+}
+
+.mat-card-title {
+    margin-bottom: 1rem !important;
+}
+
+.interested_cards .mat-card-content > button {
+    width: 50% !important;
+}
+
+.similar_section {
+    background-color: red;
+    width: 100%;
+    grid-column: 1 / span 2;
+}
