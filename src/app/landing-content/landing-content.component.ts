@@ -19,29 +19,30 @@ export class LandingContentComponent implements OnInit {
   _Allproducts_ !: Observable<any>;
 
   constructor(
-    private sideNavService_: ViewInteractionService,
-    private dialogRef_: MatDialog,
-    private route_: Router,
-    private dataService_: DataService
+    private _sideNavService: ViewInteractionService,
+    private _dialogRef: MatDialog,
+    private _router: Router,
+    private _dataService: DataService,
   ) { }
 
   ngOnInit(): void {
-    this.sideNavService_.setSidenav(this.sidenav);
+    this._sideNavService.setSidenav(this.sidenav);
 
     // Dialog setup
-    this.dialogRef_.open(LogonComponent, {
+    this._dialogRef.open(LogonComponent, {
       width: '35%',
       height: '80%'
     });
 
     //this._products_ = this.dataService_.getProducts(); // async used
-    const from_Strore = this.dataService_.allProducts_;
+    const from_Strore = this._dataService.allProducts_;
     this._Allproducts_ = from_Strore;
 
   }// ngOnInit
 
-  openProduct(id: number) {
-    this.route_.navigate(['product'], {queryParams: {pid: id} });
+  openProduct(id: number, cat: string) {
+    // this.route_.navigate(['product'], {queryParams: {pid: id, cat:cat } });
+    this._router.navigate(['product',id,cat]);
   }
 
 }

@@ -12,4 +12,6 @@ text-align: right;
     font-family: fantasy;
     font-size: larger;
     color:ivory;
+    vertical-align: middle;
+    cursor: pointer;
 }

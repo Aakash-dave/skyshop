@@ -1,12 +1,28 @@
 <mat-drawer-container class="sideNavContainer" autosize>
-  <mat-drawer #sidenav class="sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
+  <mat-drawer #sidenav class="sidenav" mode="over">
+
+    <aside>
+      <h3>Products</h3>
+      <h4>Caps</h4>
+      <h4>Sunglasses</h4>
+      <h4>Hoodies</h4>
+      <hr>
+      <br>
+      <h3>Orders</h3>
+      <hr>
+      <br><br>
+      <h2>About website</h2>
+      <h2>About Developer</h2>
+      <hr>
+    </aside>
+
   </mat-drawer>
 
   <div class="sidenav-content">
     <ng-container *ngFor="let item of _Allproducts_ | async">
       <mat-card class="landing-products">
-        <img (click)="openProduct(item.id)" mat-card-image src="/assets/{{item.category}}/{{item.url1}}" alt="Oops!">
+        <img (click)="openProduct(item.id, item.category)" mat-card-image src="/assets/{{item.category}}/{{item.url1}}"
+          alt="Oops!">
         <mat-card-header>
           <mat-card-title>{{item.name}}</mat-card-title>
           <mat-card-subtitle>{{item.category}}</mat-card-subtitle>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,23 +10,31 @@ import { FormControl } from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(
-    private sideNavService_: ViewInteractionService,
-  ) {}
+@ViewChild('searchInput') searchInput!: ElementRef;
 
-  menuToggleActive$:boolean = false; // not in use
+  constructor(
+    private _sideNavService: ViewInteractionService,
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+
+  ) { }
+
   searchVal$!: string;
   searchDefaultList$!: Observable<string[]>;
-
-  searchInput = new FormControl('');
 
   ngOnInit(): void {
 
   }
 
-  menuClicked(){
+  menuClicked() {
     // this.menuToggleActive = !this.menuToggleActive;
-		this.sideNavService_.toggle();
+    this._sideNavService.toggle();
+  }
+
+  openCategory() {
+    let category = this.searchInput.nativeElement.value;
+    console.log({ category });
+    this._router.navigate(['cat',category]);
   }
 
 }

@@ -7,6 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+//3rd party
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+
+//NGRX
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
 // Services
 import { ViewInteractionService } from './servicesUI/view-interaction.service';
 import { DataService } from './servicesDB/data.service';
@@ -30,12 +38,7 @@ import { LandingContentComponent } from './landing-content/landing-content.compo
 import { HeaderComponent } from './header/header.component';
 import { LogonComponent } from './auth/logon/logon.component';
 import { OpenProductComponent } from './open-product/open-product.component';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 
-//3rd party
-import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 
 @NgModule({

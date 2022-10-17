@@ -1,8 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { DataService } from '../servicesDB/data.service';
-import { map, Observable } from 'rxjs';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ElementRef } from '@angular/core';
+import { map } from 'rxjs';
+import { Router, ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-open-product',
@@ -14,36 +13,56 @@ export class OpenProductComponent implements OnInit {
   // Opened products
   _opened_product_ !: any;
   product_details: any;
-  productId !: number;
+  productId !: string;
+  productCat !: string;
   product_attr: any;
   product_size: any;
   main_Image_name!: string;
   main_Image_path!: string;
 
   // Interested products
-  _interested_products_: any[]=[];
+  _interested_products_: any[] = [];
+  _similar_products_: any[] = [];
 
   // Similar products
 
 
   constructor(
-    private dataService_: DataService,
-    private route_: ActivatedRoute
+    private _dataService: DataService,
+    private _route: ActivatedRoute,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
 
-    this.route_.queryParams.subscribe(param => {
-      this.productId = param['pid'];
+    // this.getProduct();
+
+    this._route.params.subscribe(path => {
+      if (path['pid'] && path['cat']) {
+        this.getProduct();
+      }
     })
 
-    this._opened_product_ = this.dataService_.allProducts_.pipe(
+  } //ngOnInit
+
+  clickedProduct(id: number, cat: string) {
+    this._router.navigate(['product',id,cat]);
+  }
+
+  getProduct() {
+
+    this._route.paramMap.subscribe(params => {
+      this.productId = params.get('pid') || '';
+      this.productCat = params.get('cat') || '';
+      console.log(this.productCat);
+    })
+
+    this._opened_product_ = this._dataService.allProducts_.pipe(
       map((items: any) => items
         .filter((oneItem: any) => oneItem.id == this.productId))
     );
 
-      // Opoened product
-
+    // Opened product
     this._opened_product_.subscribe((res: any) => {
       this.product_details = res[0];
       this.main_Image_name = res[0].url1;
@@ -54,20 +73,26 @@ export class OpenProductComponent implements OnInit {
     this.product_attr = this.generateNormalText(this.product_details.attibutes);
     this.product_size = this.generateNormalText(this.product_details.size);
 
+    // Interested section
+    this._dataService.getInterestedProducts(this.productCat).subscribe({
+      next: (response: any) => {
+        this._interested_products_ = response;
+      },
+      complete: () => {
+        // console.log(this._interested_products_);
+      }
+    })
 
-      // Interested section
-
-       this.dataService_.getInterestedProducts().subscribe({
-        next: (response:any) => {
-          this._interested_products_ = response;
-        },
-        complete: () => {
-          console.log(this._interested_products_);
-        }
-      })
-
-
-  } //ngOnInit
+    // Similar section
+    this._dataService.getSimilarProducts(this.productCat).subscribe({
+      next: (response: any) => {
+        this._similar_products_ = response;
+      },
+      complete: () => {
+        // console.log(this._similar_products_);
+      }
+    })
+  }
 
   generateNormalText(inputString: any) {
     if (inputString.length > 0) {
@@ -93,17 +118,6 @@ export class OpenProductComponent implements OnInit {
 
   }
 
-
-
-  // @HostListener('click', ['$event.target']) thumbImage(element: any) {
-
-  //   if (element.classList.contains('smallImges') && !element.classList.contains('selected_image_border')) {
-  //     // alert(element);
-  //     console.log(element.id);
-  //     element.classList.add('selected_image_border');
-  //   }
-
-  // }
 
 
 }

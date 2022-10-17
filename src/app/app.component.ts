@@ -9,11 +9,11 @@ import { DataService } from './servicesDB/data.service';
 export class AppComponent implements OnInit {
   title = 'SkyShop';
 
-  constructor(private store: DataService ) {
+  constructor(private store: DataService) {
   }
 
   ngOnInit(): void {
-      this.store.init();
+    this.store.init();
   }
 
 }

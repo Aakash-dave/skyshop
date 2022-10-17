@@ -82,20 +82,21 @@ ul {
 .purchase_section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 19% 1fr 1fr;
+    /* grid-template-rows: 19% 1fr 1fr; */
+    grid-row: auto;
 }
 
 
-.buy_btn_left{
+.buy_btn_left {
     /* background: violet; */
     margin-top: 1%;
 }
 
-.buy_btn_right{
+.buy_btn_right {
     /* background: aquamarine; */
 }
 
-.buy_btn_left > button {
+.buy_btn_left>button {
     height: 60px;
     width: 28%;
     margin: 5px 4px auto 1cm;
@@ -104,7 +105,7 @@ ul {
     font-weight: 400 !important;
 }
 
-.buy_btn_left > mat-icon {
+.buy_btn_left>mat-icon {
     transform: scale(1.0);
 }
 
@@ -112,28 +113,34 @@ ul {
     background-color: hsl(47deg 85% 50%);
 }
 
-.interested_section{
+.mat-card-title {
+    margin-bottom: 1rem !important;
+}
+
+.interested_section {
     /* background-color: blue; */
     width: 100%;
     grid-column: 1 / span 2;
     margin-bottom: 2%;
 }
 
-.interested_section > .interested_cards {
+.interested_section>.interested_cards {
     display: inline-block;
     width: 28%;
 }
 
-.mat-card-title {
-    margin-bottom: 1rem !important;
-}
-
-.interested_cards .mat-card-content > button {
+.interested_cards .mat-card-content>button,
+.similar_cards .mat-card-content>button {
     width: 50% !important;
 }
 
+.similar_section>.similar_cards {
+    display: inline-block;
+    width: 28%;
+}
+
 .similar_section {
-    background-color: red;
+    /* background-color: red; */
     width: 100%;
     grid-column: 1 / span 2;
 }

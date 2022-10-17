@@ -21,9 +21,14 @@ export class DataService {
     this.http.get(url).subscribe(response => this.subject.next(response));
   }
 
-  getInterestedProducts() {
+  getInterestedProducts(cat: string) {
     let url = url_db.interestedProducts;
-    return this.http.get(url);
+    return this.http.get(`${url}${cat}`);
+  }
+
+  getSimilarProducts(cat: string) {
+    let url = url_db.similarProducts;
+    return this.http.get(`${url}${cat}`);
   }
 
 

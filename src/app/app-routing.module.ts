@@ -9,13 +9,17 @@ const routes: Routes = [
   },
 
   {
-    path: 'product', component: OpenProductComponent,
+    path: 'product/:pid/:cat', component: OpenProductComponent,
+  },
+
+  {
+    path: 'cat/:cat', component: LandingContentComponent,
   },
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

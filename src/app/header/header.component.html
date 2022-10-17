@@ -5,21 +5,21 @@
             <mat-icon>menu</mat-icon>
         </button>
 
-        <span class="brand_name">SkyShop</span>
+        <span class="brand_name" routerLink="/" >SkyShop</span>
     </div>
 
     <div class="w-full">
         <form>
             <mat-form-field appearance="standard">
-                <mat-label>Search products, brands</mat-label>
-                <input type="text" matInput [formControl]="searchInput" [matAutocomplete]="auto">
+                <mat-label>Available products</mat-label>
+                <input type="text" matInput id="searchInput" #searchInput [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option value="Glasses">Glasses</mat-option>
-                    <mat-option value="Caps">Caps</mat-option>
-                    <mat-option value="Gloves">Gloves</mat-option>
+                    <mat-option value="sunglasses">sunglasses</mat-option>
+                    <mat-option value="caps">caps</mat-option>
+                    <mat-option value="hood">hoods</mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            <button mat-mini-fab color="primary"><mat-icon>search</mat-icon></button>
+            <button mat-mini-fab color="primary" (click)="openCategory()"><mat-icon>search</mat-icon></button>
         </form>
     </div>
 

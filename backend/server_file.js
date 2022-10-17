@@ -23,8 +23,9 @@ app.get('/',(req, res) => {
 
 // app routes
 app.get('/products',routes.getProducts);
-app.get('/interestedProducts',routes.getInterestedProducts)
-app.get('/similarProducts/pid=',routes.getSimilarProducts)
+app.get('/interestedProducts/:cat',routes.getInterestedProducts);
+app.get('/similarProducts/:cat',routes.getSimilarProducts);
+app.get('/category/:cat',routes.getCategory);
 
 
 app.listen(PORT, () => 
