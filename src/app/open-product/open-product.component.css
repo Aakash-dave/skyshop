@@ -126,7 +126,7 @@ ul {
 
 .interested_section>.interested_cards {
     display: inline-block;
-    width: 28%;
+    width: 29%;
 }
 
 .interested_cards .mat-card-content>button,
@@ -134,13 +134,13 @@ ul {
     width: 50% !important;
 }
 
-.similar_section>.similar_cards {
-    display: inline-block;
-    width: 28%;
-}
-
 .similar_section {
     /* background-color: red; */
     width: 100%;
     grid-column: 1 / span 2;
+}
+
+.similar_section>.similar_cards {
+    display: inline-block;
+    width: 29%;
 }

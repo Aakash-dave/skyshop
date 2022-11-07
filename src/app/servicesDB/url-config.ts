@@ -5,7 +5,7 @@ export const url_db = {
     products: `${baseUrl}/products`,
     interestedProducts: `${baseUrl}/interestedProducts/`,
     similarProducts: `${baseUrl}/similarProducts/`,
-    openCategory: `${baseUrl}/cat/`
+    openCategory: `${baseUrl}/category/`
 
 }
 

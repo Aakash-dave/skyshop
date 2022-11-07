@@ -31,5 +31,10 @@ export class DataService {
     return this.http.get(`${url}${cat}`);
   }
 
+  openCategory(cat: string) {
+    let url = url_db.openCategory;
+    return this.http.get(`${url}${cat}`);
+  }
+
 
 }

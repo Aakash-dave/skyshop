@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { DataService } from '../servicesDB/data.service';
 import { map } from 'rxjs';
-import { Router, ActivatedRoute, Route } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-open-product',

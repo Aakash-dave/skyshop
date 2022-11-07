@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +10,11 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-@ViewChild('searchInput') searchInput!: ElementRef;
+  @ViewChild('searchInput') searchInput!: ElementRef;
 
   constructor(
     private _sideNavService: ViewInteractionService,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute
 
   ) { }
 
@@ -33,8 +32,13 @@ export class HeaderComponent implements OnInit {
 
   openCategory() {
     let category = this.searchInput.nativeElement.value;
-    console.log({ category });
-    this._router.navigate(['cat',category]);
+    if (category) {
+      this._router.navigate(['category', category]);
+    }
+    else {
+      this._router.navigate(['']);
+    }
+
   }
 
 }

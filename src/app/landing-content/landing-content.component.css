@@ -20,25 +20,68 @@ mat-drawer {
 }
 
 .product_rating {
-  float:right;
+  float: right;
 }
 
-.mat-card{
+
+.rating_svg>mat-icon {
+  transform: scale(1.4);
+}
+
+.rating_svg {
+  position: absolute;
+  float: right;
+  -webkit-animation: myAnimation 5s linear infinite;
+  -moz-animation: myAnimation 5s linear infinite;
+  animation: myAnimation 5s linear infinite;
+}
+
+@keyframes myAnimation {
+  from {
+    right: 6%;
+  }
+
+  to {
+    right: 46%;
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes myAnimation {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes myAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
+
+
+.mat-card {
   display: flex;
   flex-direction: column;
 }
 
-.mat-card-header{
+.mat-card-header {
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
 }
 
-.mat-card-content{
+.mat-card-content {
   flex-grow: 1;
   overflow: auto;
-  }
+}
 
 .mat-card-image {
-margin: 0 0 10px 0;
+  margin: 0 0 10px 0 !important;
 }

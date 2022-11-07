@@ -3,8 +3,8 @@ import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 import { LogonComponent } from '../auth/logon/logon.component'; // dialog page
 import { MatDialog } from '@angular/material/dialog';
 import { MatDrawer } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
 import { DataService } from '../servicesDB/data.service';
 
 @Component({
@@ -17,22 +17,36 @@ export class LandingContentComponent implements OnInit {
   @ViewChild('sidenav', { static: true }) public sidenav!: MatDrawer;
 
   _Allproducts_ !: Observable<any>;
+  loginAsked = false;
 
   constructor(
     private _sideNavService: ViewInteractionService,
     private _dialogRef: MatDialog,
     private _router: Router,
+    private _activatedRoute: ActivatedRoute,
     private _dataService: DataService,
   ) { }
 
   ngOnInit(): void {
     this._sideNavService.setSidenav(this.sidenav);
 
-    // Dialog setup
-    this._dialogRef.open(LogonComponent, {
-      width: '35%',
-      height: '80%'
-    });
+
+    this._activatedRoute.params.subscribe(path => {
+      // console.log(path);
+
+      if (!path['cat']) {
+        // Dialog setup
+        this._dialogRef.open(LogonComponent, {
+          width: '35%',
+          height: '80%'
+        });
+      }
+
+      else {
+        this.openCategory();
+      }
+
+    })
 
     //this._products_ = this.dataService_.getProducts(); // async used
     const from_Strore = this._dataService.allProducts_;
@@ -42,7 +56,24 @@ export class LandingContentComponent implements OnInit {
 
   openProduct(id: number, cat: string) {
     // this.route_.navigate(['product'], {queryParams: {pid: id, cat:cat } });
-    this._router.navigate(['product',id,cat]);
+    this._router.navigate(['product', id, cat]);
   }
+
+  openCategory() {
+
+    let categoryName: string = '';
+
+    this._activatedRoute.paramMap.subscribe(params => {
+      categoryName = params.get('cat') || '';
+    })
+
+    this._dataService.openCategory(categoryName).subscribe({
+      next: (req: any) => {
+        // console.log(req);
+        this._Allproducts_ = of(req)
+      }
+    });
+  }
+
 
 }
