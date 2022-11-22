@@ -5,7 +5,7 @@
             <mat-icon>menu</mat-icon>
         </button>
 
-        <span class="brand_name" routerLink="/" >SkyShop</span>
+        <span class="brand_name" routerLink="/">SkyShop</span>
     </div>
 
     <div class="w-full">
@@ -19,14 +19,24 @@
                     <mat-option value="hood">hoods</mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            <button mat-mini-fab color="primary" (click)="openCategory()"><mat-icon>search</mat-icon></button>
+            <button mat-mini-fab color="primary" (click)="openCategory()">
+                <mat-icon>search</mat-icon>
+            </button>
         </form>
     </div>
 
-    <div class="w-full profile_part">
-        <button mat-icon-button aria-label="profile icon">
+    <div class="w-full text-right">
+        <button mat-icon-button aria-label="shopping cart" class="!w-24">
+            <mat-icon [matBadge]="itemsIncart" matBadgePosition="after" matBadgeColor="accent"
+                [matBadgeHidden]="itemsIncart==0" matBadgeOverlap="false">add_shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="profile icon" class="!w-12">
             <mat-icon>account_circle</mat-icon>
         </button>
     </div>
+
+    <!-- <div class="w-full text-right">
+
+    </div> -->
 
 </mat-toolbar>

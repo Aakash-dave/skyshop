@@ -33,8 +33,8 @@
 
 <div class="purchase_section">
     <div class="buy_btn_left">
-        <button mat-raised-button class="add_btn">Add to cart<mat-icon>add_cart_checkout</mat-icon></button>
-        <button mat-raised-button color="warn">Buy now<mat-icon>shopping_bag</mat-icon></button>
+        <button mat-raised-button class="add_btn" (click)="addToCart(product_details.id)">Add to cart <mat-icon>add_cart_checkout</mat-icon></button>
+        <button mat-raised-button color="warn">Buy now <mat-icon>shopping_bag</mat-icon></button>
     </div>
 
     <div class="buy_btn_right"></div>

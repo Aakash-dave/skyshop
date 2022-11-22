@@ -29,7 +29,7 @@ const getSimilarProducts = (request, response) => {
   // console.log(request.params.cat);
   const category = request.params.cat;
 
-  client$.query(`select * from products where category in ('${category}') ORDER BY RANDOM() LIMIT 6;`, (error, results) => {
+  client$.query(`select * from products where category in ('${category}') ORDER BY RANDOM() LIMIT 3;`, (error, results) => {
     if (error) {
       throw error
     }

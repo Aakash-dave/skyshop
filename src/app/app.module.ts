@@ -30,7 +30,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Components
 import { FooterComponent } from './footer/footer.component';
@@ -38,6 +39,7 @@ import { LandingContentComponent } from './landing-content/landing-content.compo
 import { HeaderComponent } from './header/header.component';
 import { LogonComponent } from './auth/logon/logon.component';
 import { OpenProductComponent } from './open-product/open-product.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -49,6 +51,7 @@ import { OpenProductComponent } from './open-product/open-product.component';
     HeaderComponent,
     LogonComponent,
     OpenProductComponent,
+    OrderComponent,
   ],
   imports: [
     NgxImageZoomModule,
@@ -67,6 +70,8 @@ import { OpenProductComponent } from './open-product/open-product.component';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    MatBadgeModule,
+    MatSnackBarModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

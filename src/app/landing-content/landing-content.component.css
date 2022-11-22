@@ -31,23 +31,28 @@ mat-drawer {
 .rating_svg {
   position: absolute;
   float: right;
-  -webkit-animation: myAnimation 5s linear infinite;
-  -moz-animation: myAnimation 5s linear infinite;
-  animation: myAnimation 5s linear infinite;
+  -webkit-animation: myAnimation 3s linear 2 alternate;
+  -moz-animation: myAnimation 3s linear 2 alternate;
+  animation: myAnimation 3s linear 2 alternate;
+  animation-fill-mode: both;
 }
 
 @keyframes myAnimation {
   from {
     right: 6%;
+    color: white;
   }
 
   to {
     right: 46%;
+    color: rgb(55, 112, 235);
+    animation-play-state: paused;
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    /* transform: scale(1.8); */
+    -webkit-transform: rotate(360deg) scale(1.7);
+    transform: rotate(360deg) scale(1.7);
   }
 }
 

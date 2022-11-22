@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { DataService } from '../servicesDB/data.service';
 
 @Component({
   selector: 'app-header',
@@ -15,14 +16,20 @@ export class HeaderComponent implements OnInit {
   constructor(
     private _sideNavService: ViewInteractionService,
     private _router: Router,
+    private _dataService: DataService
 
   ) { }
 
   searchVal$!: string;
   searchDefaultList$!: Observable<string[]>;
+  itemsIncart!: number;
 
   ngOnInit(): void {
-
+    this._dataService.itemsIncart_sub.subscribe({
+      next: (req: number) => {
+        this.itemsIncart = req;
+      }
+    })
   }
 
   menuClicked() {

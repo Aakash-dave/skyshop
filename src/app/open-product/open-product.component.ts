@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { DataService } from '../servicesDB/data.service';
 import { map } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 
 @Component({
   selector: 'app-open-product',
@@ -20,18 +22,34 @@ export class OpenProductComponent implements OnInit {
   main_Image_name!: string;
   main_Image_path!: string;
 
-  // Interested products
+  // suggested products
   _interested_products_: any[] = [];
   _similar_products_: any[] = [];
 
-  // Similar products
-
+  // add to cart
+  cartItemIds: number[] = [];
+  itemsInCart: number = 0;
 
   constructor(
     private _dataService: DataService,
     private _route: ActivatedRoute,
-    private _router: Router
-  ) { }
+    private _router: Router,
+    private _snackBar: MatSnackBar,
+    private _uiService: ViewInteractionService
+  ) {
+
+    this._dataService.itemsIncart_sub.subscribe({
+      next: (req) => {
+        this.itemsInCart = req;
+      }
+    });
+
+    this._dataService.cartItemId_sub.subscribe({
+      next: (req) => {
+        this.cartItemIds = req;
+      }
+    });
+  }
 
   ngOnInit(): void {
 
@@ -46,7 +64,7 @@ export class OpenProductComponent implements OnInit {
   } //ngOnInit
 
   clickedProduct(id: number, cat: string) {
-    this._router.navigate(['product',id,cat]);
+    this._router.navigate(['product', id, cat]);
   }
 
   getProduct() {
@@ -118,6 +136,23 @@ export class OpenProductComponent implements OnInit {
 
   }
 
+  addToCart(itemId: number) {
 
+    if (!this.cartItemIds.includes(itemId)) {
+
+      this.cartItemIds.push(itemId);
+      this._dataService.cartItemId_sub.next(this.cartItemIds);
+
+      // this.openSnackBar('Added to cart', 'Yay!');
+      this._uiService.openSnackBar('Added to cart', 'Yay!');
+    }
+    else {
+      this._uiService.openSnackBar('Already in your cart', 'Okay!');
+      // this.openSnackBar('Already in your cart', 'Okay!');
+    }
+
+    this.itemsInCart = this.cartItemIds.length;
+    this._dataService.itemsIncart_sub.next(this.itemsInCart);
+  }
 
 }

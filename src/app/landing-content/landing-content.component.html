@@ -20,7 +20,7 @@
   </mat-drawer>
 
   <div class="sidenav-content">
-    <ng-container *ngFor="let item of _Allproducts_ | async">
+    <ng-container *ngFor="let item of allProducts | async">
       <mat-card class="landing-products">
         <img (click)="openProduct(item.id, item.category)" mat-card-image src="/assets/{{item.category}}/{{item.url1}}"
           alt="Oops!">
@@ -34,16 +34,21 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-mini-fab color="primary">
+          <button mat-mini-fab color="primary" (click)="addToCart(item.id)">
             <mat-icon>add_shopping_cart</mat-icon>
-          </button>{{item.rating}}
-          <span id="aa" class="rating_svg" *ngIf="item.rating == 1"><mat-icon>sentiment_dissatisfied</mat-icon></span>
-          <span class="rating_svg" *ngIf="item.rating == 2"><mat-icon>sentiment_neutral</mat-icon></span>
-          <span class="rating_svg" *ngIf="item.rating == 3"><mat-icon>mood</mat-icon></span>
-          <span class="rating_svg" *ngIf="item.rating == 4"><mat-icon>sentiment_satisfied</mat-icon></span>
-          <span class="rating_svg" *ngIf="item.rating == 5"><mat-icon>sentiment_very_satisfied</mat-icon></span>
-          <button mat-mini-fab color="primary" class="product_rating">
-            <mat-icon>star_half</mat-icon>
+          </button>
+          <!-- <span class="addtocart" *ngIf="cartItemId == item.id && addtoCartClicked">
+            <button mat-mini-fab color="accent" (click)="increase()" class="!scale-75"><strong>+</strong></button>
+            {{itemsInCart}}
+              <button mat-mini-fab color="accent" (click)="decrease()" class="!scale-75"><strong>-</strong></button>
+          </span> -->
+
+          <span class="rating_svg" *ngIf="showRatingOnItem == item.id && showRatingbtn">
+            <mat-icon>{{ratingEmoji[item.rating]}}</mat-icon>
+          </span>
+
+          <button mat-mini-fab color="primary" class="product_rating" (click)="showRating(item.id)">
+            <mat-icon #ratingBtn>star_half</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>

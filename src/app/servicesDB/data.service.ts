@@ -8,8 +8,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DataService {
 
   private subject = new BehaviorSubject<object>([]);
-
   allProducts_: Observable<any> = this.subject.asObservable();
+
+  // in cart
+  public itemsIncart_sub = new BehaviorSubject<number>(0);
+  public cartItemId_sub = new BehaviorSubject<number[]>([]);
 
   constructor(
     private http: HttpClient
