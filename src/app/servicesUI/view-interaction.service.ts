@@ -15,8 +15,11 @@ export class ViewInteractionService {
 	}
 
 	public toggle() {
-		console.log('toggle..');
 		return this.sidenav.toggle();
+	}
+
+	public closeSideNav() {
+		this.sidenav.close();
 	}
 
 	openSnackBar(message: string, actionBtn: string) {

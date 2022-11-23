@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild, Renderer2 } fro
 import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 import { LogonComponent } from '../auth/logon/logon.component'; // dialog page
 import { MatDialog } from '@angular/material/dialog';
-import { MatDrawer } from '@angular/material/sidenav';
+// import { MatDrawer } from '@angular/material/sidenav';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { DataService } from '../servicesDB/data.service';
@@ -20,7 +20,7 @@ import {
 
 export class LandingContentComponent implements OnInit {
 
-  @ViewChild('sidenav', { static: true }) public sidenav!: MatDrawer;
+  // @ViewChild('sidenav', { static: true }) public sidenav!: MatDrawer;
 
   //snackbar
   // horizontalPosition: MatSnackBarHorizontalPosition = 'start';
@@ -75,7 +75,7 @@ export class LandingContentComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._uiService.setSidenav(this.sidenav);
+    // this._uiService.setSidenav(this.sidenav);
 
     this._activatedRoute.params.subscribe(path => {
       // console.log(path);
@@ -106,16 +106,20 @@ export class LandingContentComponent implements OnInit {
 
   openCategory() {
     let categoryName: string = '';
-    this._activatedRoute.paramMap.subscribe(params => {
+    this._activatedRoute.paramMap.subscribe((params) => {
       categoryName = params.get('cat') || '';
-    })
+    });
 
     this._dataService.openCategory(categoryName).subscribe({
       next: (req: any) => {
         // console.log(req);
-        this.allProducts = of(req)
+        this.allProducts = of(req);
+      },
+      complete: () => {
+        this._uiService.closeSideNav()
       }
     });
+
   }
 
   showRating(id: number) {

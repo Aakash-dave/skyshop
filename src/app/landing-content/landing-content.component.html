@@ -1,4 +1,4 @@
-<mat-drawer-container class="sideNavContainer" autosize>
+<!-- <mat-drawer-container class="sideNavContainer" autosize>
   <mat-drawer #sidenav class="sidenav" mode="over">
 
     <aside>
@@ -17,11 +17,11 @@
       <hr>
     </aside>
 
-  </mat-drawer>
+  </mat-drawer> -->
 
   <div class="sidenav-content">
     <ng-container *ngFor="let item of allProducts | async">
-      <mat-card class="landing-products">
+      <mat-card>
         <img (click)="openProduct(item.id, item.category)" mat-card-image src="/assets/{{item.category}}/{{item.url1}}"
           alt="Oops!">
         <mat-card-header>
@@ -54,4 +54,4 @@
       </mat-card>
     </ng-container>
   </div>
-</mat-drawer-container>
+<!-- </mat-drawer-container> -->

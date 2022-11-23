@@ -1,8 +1,6 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~material-icons/iconfont/material-icons.css';
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,7 +16,19 @@ body {
 }
 
 
+/* Sidenav  */
+mat-drawer {
+  width: 20%;
+}
 
+.sideNavContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav {
+  padding: 20px;
+}
 
 
 
@@ -32,7 +42,7 @@ body {
   }
 }
 
-    /*  Zoom library */
+/*  Zoom library */
 .ngxImageZoomContainer {
   width: auto !important;
   height: auto !important;

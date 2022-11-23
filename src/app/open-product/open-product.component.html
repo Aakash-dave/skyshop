@@ -5,6 +5,7 @@
         </lib-ngx-image-zoom>
         <!-- <img src="/assets/{{product_details.category}}/{{main_Image_name}}"> -->
     </div>
+    
     <div class="productPage_content_center">
         <a><img class="smallImges selected_image_border" id="thumb1" (click)="main_Image(product_details.url1, $event)"
                 src="/assets/{{product_details.category}}/{{product_details.url1}}"></a>
@@ -33,7 +34,8 @@
 
 <div class="purchase_section">
     <div class="buy_btn_left">
-        <button mat-raised-button class="add_btn" (click)="addToCart(product_details.id)">Add to cart <mat-icon>add_cart_checkout</mat-icon></button>
+        <button mat-raised-button class="add_btn" (click)="addToCart(product_details.id)">Add to cart <mat-icon>
+                add_cart_checkout</mat-icon></button>
         <button mat-raised-button color="warn">Buy now <mat-icon>shopping_bag</mat-icon></button>
     </div>
 
@@ -41,18 +43,19 @@
 
     <section class="interested_section mt-10">
         <h1 class="!ml-8">Other interesting products</h1>
-        <ng-container *ngFor="let item of _interested_products_">
-            <mat-card class="interested_cards ml-8 mr-8">
-                <mat-card-title-group>
-                    <mat-card-title>{{item.category | uppercase}}</mat-card-title>
-                    <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
-                    <img mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
-                </mat-card-title-group>
-                <mat-card-content>
-                    <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop now</button>
-                </mat-card-content>
-            </mat-card>
-        </ng-container>
+            <ng-container *ngFor="let item of _interested_products_">
+                <mat-card class="interested_cards ml-8 mr-8">
+                    <mat-card-title-group>
+                        <mat-card-title>{{item.category | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
+                        <img mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
+                    </mat-card-title-group>
+                    <mat-card-content>
+                        <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
+                            now</button>
+                    </mat-card-content>
+                </mat-card>
+            </ng-container>
     </section>
 
 
@@ -66,10 +69,11 @@
                     <img mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
                 </mat-card-title-group>
                 <mat-card-content>
-                    <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop now</button>
+                    <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
+                        now</button>
                 </mat-card-content>
             </mat-card>
         </ng-container>
     </section>
 
- </div>   
+</div>

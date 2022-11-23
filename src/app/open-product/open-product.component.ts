@@ -79,12 +79,16 @@ export class OpenProductComponent implements OnInit {
       map((items: any) => items
         .filter((oneItem: any) => oneItem.id == this.productId))
     );
-
     // Opened product
-    this._opened_product_.subscribe((res: any) => {
-      this.product_details = res[0];
-      this.main_Image_name = res[0].url1;
-      this.main_Image_path = `../assets/${this.product_details.category}/${this.main_Image_name}`;
+    this._opened_product_.subscribe({
+      next: (res: any) => {
+        this.product_details = res[0];
+        this.main_Image_name = res[0].url1;
+        this.main_Image_path = `../assets/${this.product_details.category}/${this.main_Image_name}`;
+      },
+      complete: () => {
+        this._uiService.closeSideNav();
+      }
     }); // correct this
 
     // console.log(this.main_Image_path);

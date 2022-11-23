@@ -1,11 +1,11 @@
-.sideNavContainer {
+/* .sideNavContainer {
   width: 100%;
   height: 100%;
 }
 
 .sidenav {
   padding: 20px;
-}
+} */
 
 .sidenav-content {
   /* height: 100%; */
@@ -13,10 +13,6 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   grid-row: auto;
-}
-
-mat-drawer {
-  width: 20%;
 }
 
 .product_rating {
@@ -74,6 +70,7 @@ mat-drawer {
 .mat-card {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .mat-card-header {
