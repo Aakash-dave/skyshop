@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../servicesDB/data.service';
 import { map } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,6 +11,11 @@ import { ViewInteractionService } from '../servicesUI/view-interaction.service';
   styleUrls: ['./open-product.component.css']
 })
 export class OpenProductComponent implements OnInit {
+
+
+  @ViewChild('scrollImages', { static: false }) private scrollImages!: ElementRef;
+  // @ViewChild('scrollLeft', { static: false }) private scrollLeftbtn!: ElementRef;
+  // @ViewChild('scrollRight', { static: false }) private scrollRightbtn!: ElementRef;
 
   // Opened products
   _opened_product_ !: any;
@@ -157,6 +162,22 @@ export class OpenProductComponent implements OnInit {
 
     this.itemsInCart = this.cartItemIds.length;
     this._dataService.itemsIncart_sub.next(this.itemsInCart);
+  }
+
+
+
+  leftScroll() {
+    console.log(this.scrollImages);
+    const ele = document.querySelector('.interested_section');
+    ele?.scrollBy(-50,0);
+    // this.scrollImages.nativeElement.scrollBy(200, 0);
+  }
+
+  rightScroll() {
+    console.log(this.scrollImages);
+    // this.scrollImages.nativeElement.scrollBy(-200, 0);
+    const ele = document.querySelector('.interested_section');
+    ele?.scrollBy(50,0);
   }
 
 }

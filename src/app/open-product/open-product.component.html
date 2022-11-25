@@ -5,7 +5,7 @@
         </lib-ngx-image-zoom>
         <!-- <img src="/assets/{{product_details.category}}/{{main_Image_name}}"> -->
     </div>
-    
+
     <div class="productPage_content_center">
         <a><img class="smallImges selected_image_border" id="thumb1" (click)="main_Image(product_details.url1, $event)"
                 src="/assets/{{product_details.category}}/{{product_details.url1}}"></a>
@@ -41,14 +41,19 @@
 
     <div class="buy_btn_right"></div>
 
+    <!-- <h1 class="!ml-8">Other interesting products</h1> -->
     <section class="interested_section mt-10">
-        <h1 class="!ml-8">Other interesting products</h1>
+
+        <div id="scroll-images" #scrollImages>
+            <button mat-fab color="primary" class="leftArrow" (click)="leftScroll()">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
             <ng-container *ngFor="let item of _interested_products_">
-                <mat-card class="interested_cards ml-8 mr-8">
+                <mat-card class="interested_cards ml-1 mr-1">
                     <mat-card-title-group>
                         <mat-card-title>{{item.category | uppercase}}</mat-card-title>
                         <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
-                        <img mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
+                        <img class="mb-3" mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
                     </mat-card-title-group>
                     <mat-card-content>
                         <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
@@ -56,6 +61,11 @@
                     </mat-card-content>
                 </mat-card>
             </ng-container>
+            <button mat-fab color="primary" class="rightArrow" (click)="rightScroll()">
+                <mat-icon>arrow_forward_ios</mat-icon>
+            </button>
+        </div>
+
     </section>
 
 

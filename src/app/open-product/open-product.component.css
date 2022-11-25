@@ -81,7 +81,7 @@ ul {
 
 .purchase_section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     /* grid-template-rows: 19% 1fr 1fr; */
     grid-row: auto;
 }
@@ -115,23 +115,55 @@ ul {
 
 .mat-card-title {
     margin-bottom: 1rem !important;
+    margin-right: 1rem !important;
 }
+
 
 .interested_section {
-    /* background-color: blue; */
-    width: 100%;
-    grid-column: 1 / span 2;
-    margin-bottom: 2%;
+    position: relative;
+    width: 98%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.interested_section>.interested_cards {
+.scroll-images {
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.interested_cards {
     display: inline-block;
-    width: 29%;
+    padding: 1em 2em;
+    min-width: 25%;
+    overflow: hidden;
 }
 
 .interested_cards .mat-card-content>button,
 .similar_cards .mat-card-content>button {
-    width: 50% !important;
+    /* width: 50% !important; */
+}
+
+.leftArrow {
+    position: absolute;
+    left: 0;
+    top: 46%;
+    z-index: 9999;
+    transform: translateY(-50%);
+}
+
+.rightArrow {
+    position: absolute;
+    right: 0;
+    top: 46%;
+    z-index: 9999;
+    transform: translateY(-50%);
 }
 
 .similar_section {
