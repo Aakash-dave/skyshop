@@ -4,7 +4,7 @@
 
 # About the project
 
-This is a demo/portfolio project of E-commerce shopping website and other details about developer.
+This is a demo/portfolio project of Shopping website and other details about developer.
 
 # Build with
 Angular 13.0.3
