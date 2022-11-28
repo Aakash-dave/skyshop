@@ -7,10 +7,16 @@
 This is a demo/portfolio project of Shopping website and other details about developer.
 
 # Build with
+#####
 Angular 13.0.3
+#####
+#####
 TypeScript
+#####
 NodeJs
+#####
 Postgres
+#####
 Tailwind & Vanila CSS
 
 
