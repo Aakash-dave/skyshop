@@ -41,13 +41,13 @@
 
     <div class="buy_btn_right"></div>
 
-    <!-- <h1 class="!ml-8">Other interesting products</h1> -->
-    <section class="interested_section mt-10">
 
-        <div id="scroll-images" #scrollImages>
-            <button mat-fab color="primary" class="leftArrow" (click)="leftScroll()">
-                <mat-icon>arrow_back_ios</mat-icon>
-            </button>
+    <section class="interested_section mt-10">
+        <h1 class="!ml-8">Other interesting products</h1>
+        <button mat-fab color="primary" class="leftArrow" (click)="leftScroll(0)">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <div class="scroll-images">
             <ng-container *ngFor="let item of _interested_products_">
                 <mat-card class="interested_cards ml-1 mr-1">
                     <mat-card-title-group>
@@ -61,29 +61,36 @@
                     </mat-card-content>
                 </mat-card>
             </ng-container>
-            <button mat-fab color="primary" class="rightArrow" (click)="rightScroll()">
-                <mat-icon>arrow_forward_ios</mat-icon>
-            </button>
         </div>
-
+        <button mat-fab color="primary" class="rightArrow" (click)="rightScroll(0)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
     </section>
 
 
-    <section class="similar_section mt-10 mb-8">
+    <section class="similar_section mt-10 mb-10">
         <h1 class="!ml-8">Similar products</h1>
-        <ng-container *ngFor="let item of _similar_products_">
-            <mat-card class="similar_cards ml-8 mr-8">
-                <mat-card-title-group>
-                    <mat-card-title>{{item.category | uppercase}}</mat-card-title>
-                    <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
-                    <img mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
-                </mat-card-title-group>
-                <mat-card-content>
-                    <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
-                        now</button>
-                </mat-card-content>
-            </mat-card>
-        </ng-container>
+        <button mat-fab color="primary" class="leftArrow" (click)="leftScroll(1)">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <div class="scroll-images">
+            <ng-container *ngFor="let item of _similar_products_">
+                <mat-card class="similar_cards ml-1 mr-1">
+                    <mat-card-title-group>
+                        <mat-card-title>{{item.category | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
+                        <img class="mb-3" mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
+                    </mat-card-title-group>
+                    <mat-card-content>
+                        <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
+                            now</button>
+                    </mat-card-content>
+                </mat-card>
+            </ng-container>
+        </div>
+        <button mat-fab color="primary" class="rightArrow" (click)="rightScroll(1)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
     </section>
 
 </div>

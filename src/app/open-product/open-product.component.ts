@@ -166,18 +166,14 @@ export class OpenProductComponent implements OnInit {
 
 
 
-  leftScroll() {
-    console.log(this.scrollImages);
-    const ele = document.querySelector('.interested_section');
-    ele?.scrollBy(-50,0);
-    // this.scrollImages.nativeElement.scrollBy(200, 0);
+  leftScroll(index: number) {
+    const ele = document.querySelectorAll('.scroll-images')[index];
+    ele?.scrollBy(-250, 0);
   }
 
-  rightScroll() {
-    console.log(this.scrollImages);
-    // this.scrollImages.nativeElement.scrollBy(-200, 0);
-    const ele = document.querySelector('.interested_section');
-    ele?.scrollBy(50,0);
+  rightScroll(index: number) {
+    const ele = document.querySelectorAll('.scroll-images')[index];
+    ele?.scrollBy(250, 0);
   }
 
 }

@@ -98,7 +98,7 @@ ul {
 
 .buy_btn_left>button {
     height: 60px;
-    width: 28%;
+    width: 18%;
     margin: 5px 4px auto 1cm;
     margin-right: 2px;
     color: white !important;
@@ -119,60 +119,65 @@ ul {
 }
 
 
-.interested_section {
+.interested_section,
+.similar_section {
     position: relative;
-    width: 98%;
+    width: 100%;
     white-space: nowrap;
     overflow-x: hidden;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
     margin-left: auto;
     margin-right: auto;
-}
-
-.scroll-images {
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
-.interested_cards {
+.interested_cards,
+.similar_cards {
     display: inline-block;
     padding: 1em 2em;
     min-width: 25%;
     overflow: hidden;
 }
 
-.interested_cards .mat-card-content>button,
-.similar_cards .mat-card-content>button {
-    /* width: 50% !important; */
+/* .similar_section {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-overflow-scrolling: touch;
+} */
+
+/* .similar_cards {
+    display: inline-block;
+    padding: 1em 2em;
+    min-width: 25%;
+    overflow: hidden;
+} */
+
+.scroll-images {
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .leftArrow {
     position: absolute;
     left: 0;
-    top: 46%;
+    top: 51%;
     z-index: 9999;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
 }
 
 .rightArrow {
     position: absolute;
     right: 0;
-    top: 46%;
+    top: 51%;
     z-index: 9999;
-    transform: translateY(-50%);
-}
-
-.similar_section {
-    /* background-color: red; */
-    width: 100%;
-    grid-column: 1 / span 2;
-}
-
-.similar_section>.similar_cards {
-    display: inline-block;
-    width: 29%;
+    /* transform: translateY(-50%); */
 }
