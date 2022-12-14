@@ -3,10 +3,11 @@
     <div name="address">
       <p>Deliver to : Vadodara</p>
     </div>
-    <div name="flex cart-items-list">
-      <ng-container>
-        <img src="#" />
-        <span name="item-details"></span>
+    <div class="flex cart-items-list">
+      <ng-container *ngFor="let item of cartProducts">
+        <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5"/>
+        <span name="item-name">{{item.name}}</span>
+        <span name="item-price">{{item.price}}</span>
         <span name="item-delivery"></span>
         <div name="item-actions"></div>
       </ng-container>

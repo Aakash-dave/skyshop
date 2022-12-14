@@ -1,4 +1,5 @@
 const client$ = require("../connectdb");
+const bodyParser = require('body-parser');
 
 client$.connect();
 
@@ -55,17 +56,16 @@ const getCategory = (request, response) => {
 };
 
 const getCartItems = (request, response) => {
-  const ids = (request.body).toString();
+  const query_ = 'select id, name, url1, price, category from products where id = ANY($1)';
+  const values = request.body;
 
-  client$.query(
-    `select * from products where id in ('${ids}');`,
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json(results.rows);
+  client$.query(query_, [values], (error, results) => {
+    if (error) {
+      response.status(500).json("something didn't work");
+      throw error;
     }
-  );
+    response.status(200).json(results.rows);
+  });
 };
 
 client$.end;
