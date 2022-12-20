@@ -15,7 +15,7 @@ export interface IOrderDetail {
   styleUrls: ['./order.component.css'],
 })
 
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit {  
 
   cartIds!: number[];
   cartProducts: IOrderDetail[] = [];
