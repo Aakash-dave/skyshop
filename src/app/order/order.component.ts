@@ -15,7 +15,6 @@ export interface IOrderDetail {
   styleUrls: ['./order.component.css'],
 })
 
-
 export class OrderComponent implements OnInit {
 
   cartIds!: number[];
@@ -30,6 +29,8 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.cartIds = [1,2,3,4];
 
     this._dataService.getcartItems(this.cartIds).subscribe({
       next: (req:any) => {

@@ -1,20 +1,36 @@
-<main class="flex justify-center pt-6">
+<main class="flex justify-center flex-row pt-6 gap-x-14">
   <section class="flex-initial w-6/12 cart-items">
     <div name="address">
       <p>Deliver to : Vadodara</p>
     </div>
-    <div class="flex cart-items-list">
+    <div class="cart-items-list border-solid border-2">
       <ng-container *ngFor="let item of cartProducts">
-        <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5"/>
-        <span name="item-name">{{item.name}}</span>
-        <span name="item-price">{{item.price}}</span>
-        <span name="item-delivery"></span>
-        <div name="item-actions"></div>
+        <div class="flex justify-around flex-row gap-y-14 mb-5 mt-5">
+          <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5" />
+          <div>
+            <span class="text-lg">{{item.name}}</span>
+            <div>
+              <span class="text-lg font-extralight text-slate-400">{{item.category}}</span>
+            </div>
+            <div>
+              <span class="text-xl font-bold">&#8377;{{item.price}}</span>
+              <div class="item-actions -ml-2">
+                  <button mat-mini-fab color="accent" class="!scale-75"><strong>+</strong></button>
+                  <!-- {{itemsInCart}} -->
+                  1
+                  <button mat-mini-fab color="accent" class="!scale-75"><strong>-</strong></button>
+                  <button mat-button color="warn"><strong>REMOVE</strong></button>
+              </div>
+            </div>
+          </div>
+          <span name="item-delivery" class="text-sm text-slate-500">Delivery within 6 working days</span>
+        </div>
+        <hr>
       </ng-container>
     </div>
   </section>
 
-  <section class="flex-initial w-1/4 cart-pricing">
+  <section class="flex-initial w-1/4 cart-pricing border-solid border-2">
     <h4>PRICE DETAILS</h4>
     <hr />
     <h4>Price<span>1000</span></h4>
