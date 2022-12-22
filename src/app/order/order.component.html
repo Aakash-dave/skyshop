@@ -1,8 +1,11 @@
 <main class="flex justify-center flex-row pt-6 gap-x-14">
+
   <section class="flex-initial w-6/12 cart-items">
-    <div name="address">
-      <p>Deliver to : Vadodara</p>
-    </div>
+    <address class="border-solid border-2 border-b ">
+      <div class="p-2 text-base">
+        Deliver to: Aakash Dave, Vadodara
+      </div>
+    </address>
     <div class="cart-items-list border-solid border-2">
       <ng-container *ngFor="let item of cartProducts">
         <div class="flex justify-around flex-row gap-y-14 mb-5 mt-5">
@@ -15,11 +18,12 @@
             <div>
               <span class="text-xl font-bold">&#8377;{{item.price}}</span>
               <div class="item-actions -ml-2">
-                  <button mat-mini-fab color="accent" class="!scale-75"><strong>+</strong></button>
-                  <!-- {{itemsInCart}} -->
-                  1
-                  <button mat-mini-fab color="accent" class="!scale-75"><strong>-</strong></button>
-                  <button mat-button color="warn"><strong>REMOVE</strong></button>
+                <button mat-mini-fab color="accent" (click)="increment(item.id, item.price)"
+                  class="!scale-75"><strong>+</strong></button>
+                {{this.cartQuantity.get(item.id)}}
+                <button mat-mini-fab color="accent" (click)="decrement(item.id, item.price)"
+                  class="!scale-75"><strong>-</strong></button>
+                <button mat-button color="warn"><strong>REMOVE</strong></button>
               </div>
             </div>
           </div>
@@ -31,12 +35,21 @@
   </section>
 
   <section class="flex-initial w-1/4 cart-pricing border-solid border-2">
-    <h4>PRICE DETAILS</h4>
+    <div class="p-2 text-base font-semibold text-slate-600">PRICE DETAILS</div>
     <hr />
-    <h4>Price<span>1000</span></h4>
-    <h4>Discount<span>200</span></h4>
-    <h4>Delivery charge<span>FREE</span></h4>
+    <div class="flex justify-between flex-row gap-x-0.5">
+      <div class="p-1">
+        <div class="h-8 text-base">Price</div>
+        <div class="h-8 text-base">Discount</div>
+        <div class="h-8 text-base">Delivery charge</div>
+      </div>
+      <div class="p-1">
+        <div class="h-8 text-base">&#8377;{{this.cartPrice}}</div>
+        <div class="h-8 text-base">{{discount}}%</div>
+        <div class="h-8 text-base">&#8377;{{deliveryCharge}}</div>
+      </div>
+    </div>
     <hr />
-    <h3>Total Amount<span>BAHUT JYADA</span></h3>
+    <h2 class="inline-block p-1">Total Amount</h2><span class="p-1 float-right text-lg font-medium">&#8377;{{this.cartTotal}}</span>
   </section>
 </main>
