@@ -47,7 +47,7 @@ export class OrderComponent implements OnInit {
       complete: () => {
         this.cartPrice = this.cartProducts.reduce((accumulator: number, ele: any) =>
           (+accumulator + parseInt(ele.price)) * (1), 0);
-          this.recalTotal();
+        this.recalTotal();
       }
     });
 
@@ -75,6 +75,10 @@ export class OrderComponent implements OnInit {
 
   recalTotal() {
     this.cartTotal = this.cartPrice - ((this.cartPrice * this.discount) / 100) - this.deliveryCharge;
+  }
+
+  removeCartItem(id: number) {
+    
   }
 
 }
