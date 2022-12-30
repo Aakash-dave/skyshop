@@ -1,0 +1,89 @@
+/* .sideNavContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav {
+  padding: 20px;
+} */
+
+.sidenav-content {
+  /* height: 100%; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-row: auto;
+}
+
+.product_rating {
+  float: right;
+}
+
+
+.rating_svg>mat-icon {
+  transform: scale(1.4);
+}
+
+.rating_svg {
+  position: absolute;
+  float: right;
+  -webkit-animation: myAnimation 3s linear 2 alternate;
+  -moz-animation: myAnimation 3s linear 2 alternate;
+  animation: myAnimation 3s linear 2 alternate;
+  animation-fill-mode: both;
+}
+
+@keyframes myAnimation {
+  from {
+    right: 6%;
+    color: white;
+  }
+
+  to {
+    right: 46%;
+    color: rgb(55, 112, 235);
+    animation-play-state: paused;
+  }
+
+  100% {
+    /* transform: scale(1.8); */
+    -webkit-transform: rotate(360deg) scale(1.7);
+    transform: rotate(360deg) scale(1.7);
+  }
+}
+
+@-moz-keyframes myAnimation {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes myAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
+
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+.mat-card-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.mat-card-image {
+  margin: 0 0 10px 0 !important;
+}

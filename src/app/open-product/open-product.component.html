@@ -1,0 +1,97 @@
+<div class="productPage_container">
+    <div class="productPage_content_left">
+        <lib-ngx-image-zoom [thumbImage]=main_Image_path [fullImage]=main_Image_path [magnification]="1"
+            [enableScrollZoom]="true" [zoomMode]="'hover'" [enableLens]="true" [lensWidth]="250" [lensHeight]="150">
+        </lib-ngx-image-zoom>
+        <!-- <img src="/assets/{{product_details.category}}/{{main_Image_name}}"> -->
+    </div>
+
+    <div class="productPage_content_center">
+        <a><img class="smallImges selected_image_border" id="thumb1" (click)="main_Image(product_details.url1, $event)"
+                src="/assets/{{product_details.category}}/{{product_details.url1}}"></a>
+        <a><img class="smallImges" id="thumb2" (click)="main_Image(product_details.url2, $event)"
+                src="/assets/{{product_details.category}}/{{product_details.url2}}"></a>
+    </div>
+
+    <div class="productPage_content_right">
+        <h1>{{product_details.name}}</h1>
+        <h3><button mat-stroked-button class="star_box">{{product_details.rating | number: '1.0'}}<mat-icon
+                    class="rating_star">star</mat-icon></button> <span class="text-sm align-middle"> Ratings from 90 reviews</span>
+        </h3>
+        <h2 class="h2_margin mt-4">Available size</h2> 
+        <div class="mb-4">{{product_size.length>0?product_size:'Regular'}}</div>
+        <p><span class="text-xl mt-4">&#8377;{{product_details.price}}</span> <span class="text-xs"> (incl. of all
+                taxes)</span></p>
+        <h2 class="h2_margin mt-4">Highlights</h2>
+        <ul class="grid grid-cols-2 ml-4 text-base">
+            <li *ngFor="let attr of product_attr">{{attr}}</li>
+        </ul>
+        <br>
+        <h2 class="h2_margin mt-4">Description</h2>
+        <p class="desc_width mt-4 text-base">{{product_details.short_desc}}</p>
+    </div>
+
+</div>
+
+<div class="purchase_section">
+    <div class="buy_btn_left">
+        <button mat-raised-button class="add_btn" (click)="addToCart(product_details.id)">Add to cart <mat-icon>
+                add_cart_checkout</mat-icon></button>
+        <button mat-raised-button color="warn">Buy now <mat-icon>shopping_bag</mat-icon></button>
+    </div>
+
+    <div class="buy_btn_right"></div>
+
+
+    <section class="interested_section mt-10">
+        <h1 class="!ml-8">Other interesting products</h1>
+        <button mat-fab color="primary" class="leftArrow" (click)="leftScroll(0)">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <div class="scroll-images">
+            <ng-container *ngFor="let item of _interested_products_">
+                <mat-card class="interested_cards ml-1 mr-1">
+                    <mat-card-title-group>
+                        <mat-card-title>{{item.category | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
+                        <img class="mb-3" mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
+                    </mat-card-title-group>
+                    <mat-card-content>
+                        <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
+                            now</button>
+                    </mat-card-content>
+                </mat-card>
+            </ng-container>
+        </div>
+        <button mat-fab color="primary" class="rightArrow" (click)="rightScroll(0)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </section>
+
+
+    <section class="similar_section mt-10 mb-10">
+        <h1 class="!ml-8">Similar products</h1>
+        <button mat-fab color="primary" class="leftArrow" (click)="leftScroll(1)">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <div class="scroll-images">
+            <ng-container *ngFor="let item of _similar_products_">
+                <mat-card class="similar_cards ml-1 mr-1">
+                    <mat-card-title-group>
+                        <mat-card-title>{{item.category | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
+                        <img class="mb-3" mat-card-lg-image src="/assets/{{item.category}}/{{item.url1}}">
+                    </mat-card-title-group>
+                    <mat-card-content>
+                        <button mat-raised-button color="primary" (click)="clickedProduct(item.id,item.category)">Shop
+                            now</button>
+                    </mat-card-content>
+                </mat-card>
+            </ng-container>
+        </div>
+        <button mat-fab color="primary" class="rightArrow" (click)="rightScroll(1)">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </section>
+
+</div>

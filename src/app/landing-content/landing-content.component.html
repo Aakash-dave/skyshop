@@ -1,0 +1,51 @@
+<!-- <mat-drawer-container class="sideNavContainer" autosize>
+  <mat-drawer #sidenav class="sidenav" mode="over">
+
+    <aside>
+      <hr>
+      <br>
+      <h4><a routerLink="/category/caps">Caps</a></h4>
+      <h4><a routerLink="/category/sunglasses">Sunglasses</a></h4>
+      <h4><a routerLink="/category/hood">Hoodies</a></h4>
+      <hr>
+      <br>
+      <h3>Orders</h3>
+      <hr>
+      <br><br>
+      <h2>About website</h2>
+      <h2>About Developer</h2>
+      <hr>
+    </aside>
+
+  </mat-drawer> -->
+
+  <div class="sidenav-content">
+    <ng-container *ngFor="let item of allProducts | async">
+      <mat-card>
+        <img (click)="openProduct(item.id, item.category)" mat-card-image src="/assets/{{item.category}}/{{item.url1}}"
+          alt="Oops!">
+        <mat-card-header>
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{item.short_desc}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-mini-fab color="accent" (click)="addToCart(item.id)">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+          <span class="rating_svg" *ngIf="showRatingOnItem == item.id && showRatingbtn">
+            <mat-icon>{{ratingEmoji[item.rating]}}</mat-icon>
+          </span>
+
+          <button mat-mini-fab color="primary" class="product_rating" (click)="showRating(item.id)">
+            <mat-icon #ratingBtn>star_half</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </div>
+<!-- </mat-drawer-container> -->

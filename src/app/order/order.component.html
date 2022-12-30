@@ -1,0 +1,57 @@
+<main class="flex justify-center flex-row pt-6 gap-x-14 mb-4">
+
+  <section class="flex-initial w-6/12 cart-items shadow-md">
+    <address class="border-solid border border-b-0">
+      <div class="p-2 text-base">
+        Deliver to: Aakash Dave, Vadodara
+      </div>
+    </address>
+    <div class="border-solid border border-b-0">
+      <ng-container *ngFor="let item of cartProducts">
+        <div class="flex justify-around flex-row gap-y-14 mb-5 mt-5">
+          <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5 cursor-pointer" (click)="openProduct(item.id, item.category)" />
+          <div>
+            <span class="text-lg cursor-pointer" (click)="openProduct(item.id, item.category)">{{item.name}}</span>
+            <div>
+              <span class="text-lg font-extralight text-slate-400">{{item.category}}</span>
+            </div>
+            <div>
+              <span class="text-xl font-bold">&#8377;{{item.price}}</span>
+              <div class="item-actions -ml-2">
+                <button mat-mini-fab color="accent" (click)="increment(item.id, item.price)"
+                  class="!scale-75"><strong>+</strong></button>
+                {{this.cartQuantity.get(item.id)}}
+                <button mat-mini-fab color="accent" (click)="decrement(item.id, item.price)"
+                  class="!scale-75"><strong>-</strong></button>
+                <button mat-button color="warn" (click)="removeCartItem(item.id)"><strong>REMOVE</strong></button>
+              </div>
+            </div>
+          </div>
+          <span class="text-sm text-slate-500">Delivery within 6 working days</span>
+        </div>
+        <hr>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="flex-initial w-1/4 h-2/5 border border-b-0 shadow-md">
+    <div class="p-2 text-base font-medium text-slate-400">PRICE DETAILS</div>
+    <hr />
+    <div class="flex justify-between flex-row gap-x-0.5">
+      <div class="p-2">
+        <div class="h-8 text-base text-slate-700">Price</div>
+        <div class="h-8 text-base text-slate-700">Discount</div>
+        <div class="h-8 text-base text-slate-700">Delivery charge</div>
+      </div>
+      <div class="p-2 text-end">
+        <div class="h-8 text-base text-slate-700">&#8377;{{this.cartPrice}}</div>
+        <div class="h-8 text-base text-slate-700">{{discount}}%</div>
+        <div class="h-8 text-base text-slate-700">&#8377;{{deliveryCharge}}</div>
+      </div>
+    </div>
+    <hr />
+    <h2 class="inline-block p-2 !mb-0">Total Amount</h2><span class="p-1 float-right text-lg font-medium">&#8377;{{this.cartTotal}}</span>
+    <div class="border-b border-dashed"></div>
+    <div class="pt-2"><button mat-raised-button color="accent" class="w-full h-12">PLACE ORDER</button></div>
+  </section>
+</main>

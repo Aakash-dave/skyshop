@@ -1,0 +1,35 @@
+<div class="gridContainer">
+
+    <div class="header">
+        <header>
+            <app-header></app-header>
+        </header>
+    </div>
+
+    <div class="content">
+        <mat-drawer-container class="sideNavContainer" autosize>
+            <mat-drawer #sidenav class="sidenav" mode="over">
+                <aside>
+                    <hr> <br>
+                    <h4><a routerLink="/category/caps">Caps</a></h4>
+                    <h4><a routerLink="/category/sunglasses">Sunglasses</a></h4>
+                    <h4><a routerLink="/category/hood">Hoodies</a></h4>
+                    <hr> <br>
+                    <h3><a routerLink="/orders">Orders</a></h3>
+                    <hr> <br><br>
+                    <h2>About website</h2>
+                    <h2>About Developer</h2>
+                    <hr>
+                </aside>
+            </mat-drawer>
+            <router-outlet></router-outlet>
+        </mat-drawer-container>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <app-footer></app-footer>
+        </footer>
+    </div>
+
+</div>

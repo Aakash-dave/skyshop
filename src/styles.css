@@ -1,0 +1,54 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~material-icons/iconfont/material-icons.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* Sidenav  */
+mat-drawer {
+  width: 20%;
+}
+
+.sideNavContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav {
+  padding: 20px;
+}
+
+
+
+@media only screen and (max-width: 620px) {
+
+  /* For mobile phones: */
+  .menu,
+  .main,
+  .right {
+    /* width: 100%; */
+  }
+}
+
+/*  Zoom library */
+.ngxImageZoomContainer {
+  width: auto !important;
+  height: auto !important;
+}
+
+.ngxImageZoomFullContainer.ngxImageZoomLensEnabled {
+  border: 1px #777ac4 !important;
+  border-style: dotted !important;
+}
