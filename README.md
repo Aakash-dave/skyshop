@@ -9,10 +9,10 @@ This is a demo/portfolio project of E-commerce shopping website and other detail
 ## Build with ##
 
 * Front-end
-            * Angular 13
-            * TypeScipt
-            * Tailwind
+    *  Angular 13
+    *  TypeScipt
+    *  Tailwind
 
 * Back-end
-            * Nodejs [expressjs]
-            * PostgreSQL           
+    *  Nodejs [expressjs]
+    *  PostgreSQL        
