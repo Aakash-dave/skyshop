@@ -12,11 +12,11 @@
         <form>
             <mat-form-field appearance="standard">
                 <mat-label>Available products</mat-label>
-                <input type="text" matInput id="searchInput" #searchInput [matAutocomplete]="auto">
+                <input type="text" matInput id="searchInput" #searchInput [matAutocomplete]="auto" [formControl]="searchBox">
                 <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option value="sunglasses">sunglasses</mat-option>
-                    <mat-option value="caps">caps</mat-option>
-                    <mat-option value="hood">hoods</mat-option>
+                    <mat-option *ngFor="let item of options | async" [value]="item">
+                        {{item | titlecase}}
+                    </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
             <button mat-mini-fab color="primary" (click)="openCategory()">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="w-full text-right">
-        <button mat-icon-button aria-label="shopping cart" class="!w-24">
+        <button mat-icon-button aria-label="shopping cart" class="!mr-8" routerLink="/orders">
             <mat-icon [matBadge]="itemsIncart" matBadgePosition="after" matBadgeColor="accent"
                 [matBadgeHidden]="itemsIncart==0" matBadgeOverlap="false">add_shopping_cart</mat-icon>
         </button>

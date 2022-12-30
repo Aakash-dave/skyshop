@@ -145,14 +145,4 @@ export class LandingContentComponent implements OnInit {
     this._dataService.itemsIncart_sub.next(this.itemsInCart);
   }
 
-  // increase() {
-  //   this.itemsInCart++;
-  // }
-
-  // decrease() {
-  //   if (this.itemsInCart > 0) {
-  //     this.itemsInCart--;
-  //   }
-  // }
-
 }

@@ -3,6 +3,9 @@ import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { DataService } from '../servicesDB/data.service';
+import { map, startWith } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-header',
@@ -23,13 +26,22 @@ export class HeaderComponent implements OnInit {
   searchVal$!: string;
   searchDefaultList$!: Observable<string[]>;
   itemsIncart!: number;
+  availProducts = ['sunglasses', 'caps', 'hood'];
+  options!: Observable<string[]>;
+  searchBox = new FormControl('');
 
   ngOnInit(): void {
     this._dataService.itemsIncart_sub.subscribe({
       next: (req: number) => {
         this.itemsIncart = req;
       }
-    })
+    });
+
+    this.options = this.searchBox.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+
   }
 
   menuClicked() {
@@ -39,13 +51,18 @@ export class HeaderComponent implements OnInit {
 
   openCategory() {
     let category = this.searchInput.nativeElement.value;
-    if (category) {
+
+    if (category && this.availProducts.indexOf(category) >= 0) {
       this._router.navigate(['category', category]);
     }
     else {
       this._router.navigate(['']);
     }
+  }
 
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.availProducts.filter(option => option.toLowerCase().includes(filterValue));
   }
 
 }

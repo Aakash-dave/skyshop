@@ -9,9 +9,9 @@
     <div class="border-solid border border-b-0">
       <ng-container *ngFor="let item of cartProducts">
         <div class="flex justify-around flex-row gap-y-14 mb-5 mt-5">
-          <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5" />
+          <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5 cursor-pointer" (click)="openProduct(item.id, item.category)" />
           <div>
-            <span class="text-lg">{{item.name}}</span>
+            <span class="text-lg cursor-pointer" (click)="openProduct(item.id, item.category)">{{item.name}}</span>
             <div>
               <span class="text-lg font-extralight text-slate-400">{{item.category}}</span>
             </div>

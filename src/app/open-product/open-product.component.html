@@ -16,18 +16,19 @@
     <div class="productPage_content_right">
         <h1>{{product_details.name}}</h1>
         <h3><button mat-stroked-button class="star_box">{{product_details.rating | number: '1.0'}}<mat-icon
-                    class="rating_star">star</mat-icon></button> <span class="text-sm"> Ratings from 90 reviews</span>
+                    class="rating_star">star</mat-icon></button> <span class="text-sm align-middle"> Ratings from 90 reviews</span>
         </h3>
-        <h4 class="inline-block mt-4">Available size:</h4> {{product_size.length>0?product_size:'Regular'}}
+        <h2 class="h2_margin mt-4">Available size</h2> 
+        <div class="mb-4">{{product_size.length>0?product_size:'Regular'}}</div>
         <p><span class="text-xl mt-4">&#8377;{{product_details.price}}</span> <span class="text-xs"> (incl. of all
                 taxes)</span></p>
         <h2 class="h2_margin mt-4">Highlights</h2>
-        <ul class="grid grid-cols-2 ml-4">
+        <ul class="grid grid-cols-2 ml-4 text-base">
             <li *ngFor="let attr of product_attr">{{attr}}</li>
         </ul>
         <br>
         <h2 class="h2_margin mt-4">Description</h2>
-        <p class="desc_width mt-4">{{product_details.short_desc}}</p>
+        <p class="desc_width mt-4 text-base">{{product_details.short_desc}}</p>
     </div>
 
 </div>

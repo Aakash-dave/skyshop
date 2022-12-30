@@ -34,15 +34,9 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-mini-fab color="primary" (click)="addToCart(item.id)">
+          <button mat-mini-fab color="accent" (click)="addToCart(item.id)">
             <mat-icon>add_shopping_cart</mat-icon>
           </button>
-          <!-- <span class="addtocart" *ngIf="cartItemId == item.id && addtoCartClicked">
-            <button mat-mini-fab color="accent" (click)="increase()" class="!scale-75"><strong>+</strong></button>
-            {{itemsInCart}}
-              <button mat-mini-fab color="accent" (click)="decrease()" class="!scale-75"><strong>-</strong></button>
-          </span> -->
-
           <span class="rating_svg" *ngIf="showRatingOnItem == item.id && showRatingbtn">
             <mat-icon>{{ratingEmoji[item.rating]}}</mat-icon>
           </span>
