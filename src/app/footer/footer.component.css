@@ -1,0 +1,8 @@
+.mat-toolbar {
+    font-size: small;
+}
+
+svg {
+    fill: red;
+    display: inline-block;
+}

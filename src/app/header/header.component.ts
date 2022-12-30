@@ -52,11 +52,11 @@ export class HeaderComponent implements OnInit {
   openCategory() {
     let category = this.searchInput.nativeElement.value;
 
-    if (category && this.availProducts.indexOf(category) >= 0) {
+    if (category && this.availProducts.find(ele => category == ele)) {
       this._router.navigate(['category', category]);
     }
     else {
-      this._router.navigate(['']);
+      // this._router.navigate(['']);
     }
   }
 

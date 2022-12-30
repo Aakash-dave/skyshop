@@ -34,8 +34,8 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-mini-fab color="accent" (click)="addToCart(item.id)">
-            <mat-icon>add_shopping_cart</mat-icon>
+          <button mat-mini-fab color="primary" (click)="addToCart(item.id)">
+            <mat-icon>{{alreadyInCart(item.id)}}</mat-icon>
           </button>
           <span class="rating_svg" *ngIf="showRatingOnItem == item.id && showRatingbtn">
             <mat-icon>{{ratingEmoji[item.rating]}}</mat-icon>

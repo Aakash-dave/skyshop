@@ -11,6 +11,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+// import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-landing-content',
@@ -44,6 +45,11 @@ export class LandingContentComponent implements OnInit {
     3: 'mood',
     4: 'sentiment_satisfied',
     5: 'sentiment_very_satisfied',
+  }
+
+  cartEmoji: { [key: number]: string } = {
+    0: 'add_shopping_cart',
+    1: 'shopping_cart_checkout'
   }
 
   constructor(
@@ -143,6 +149,10 @@ export class LandingContentComponent implements OnInit {
 
     this.itemsInCart = this.cartItemIds.length;
     this._dataService.itemsIncart_sub.next(this.itemsInCart);
+  }
+
+  alreadyInCart(itemId: number) {
+    return this.cartEmoji[Number(this.cartItemIds.includes(itemId))];
   }
 
 }

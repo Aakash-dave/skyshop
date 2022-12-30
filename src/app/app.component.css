@@ -2,7 +2,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 64px 2fr auto;
+    grid-template-rows: 64px 2fr 1.5cm;
 }
 
 .header {
@@ -18,5 +18,4 @@
 
 .footer {
     grid-column: 1/-1;
-    grid-row: 4/4;
 }
