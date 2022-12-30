@@ -1,0 +1,22 @@
+.gridContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 64px 2fr 64px;
+}
+
+.header {
+    grid-column: 1/-1;
+    grid-row: 1/1;
+}
+
+.content {
+    grid-column: 1/6;
+    grid-row: 2/4;
+}
+
+
+.footer {
+    grid-column: 1/-1;
+    grid-row: 4/4;
+}

@@ -1,12 +1,12 @@
 # SkyShop
 
-*Work is in progress as of Dec 2022 - Other details will be added after completion*
+*/ Work in progress as of Nov 2022 */
 
 # About the project
 
-This is a demo/portfolio project of Shopping website and other details about developer.
+This is a demo/portfolio project of E-commerce shopping website and other details about developer.
 
-## Tech ##
+## Build with ##
 
 * Front-end
             * Angular 13
