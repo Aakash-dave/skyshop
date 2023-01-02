@@ -9,7 +9,7 @@ This is a demo/portfolio project of E-commerce shopping website and other detail
 ## Build with ##
 
 * Front-end
-    *  Angular 13
+    *  Angular 14
     *  TypeScipt
     *  Tailwind
 

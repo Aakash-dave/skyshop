@@ -90,7 +90,8 @@ export class LandingContentComponent implements OnInit {
         // Dialog setup
         this._dialogRef.open(LogonComponent, {
           width: '35%',
-          height: '80%'
+          height: '80%',
+          disableClose: true,
         });
       }
       else {

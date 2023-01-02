@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Let's get you started...</h1><br>
 
 <div mat-dialog-content class="mat_dialog_content">
-    <label class="text-base">Login with basic details.</label><br><br>
+    <label class="text-base">Login with basic details, We will remember you next time.</label><br><br>
     <form [formGroup]="logonForm" (ngSubmit)="Logon_submit()">
         <mat-form-field appearance="outline">
             <mat-label>Your name</mat-label>
@@ -16,7 +16,7 @@
         <br><br>
         <hr>
         <br>
-        <label class="text-base">Loging as guest, Choose your Avatar.</label>
+        <label class="text-base">Login as a guest, Choose your Avatar.</label>
         <br><br>
         <section class="avtar_section">
             <button mat-fab color="accent" (click)="selected_avtar('The Recruiter')" id="btn1"
