@@ -40,4 +40,9 @@ export class DataService {
     return this.http.post(`${url}`, reqBody);
   }
 
+  saveuser(reqBody: object) {
+    const url = url_db.saveUser;
+    return this.http.post(`${url}`, reqBody);
+  }
+
 }
