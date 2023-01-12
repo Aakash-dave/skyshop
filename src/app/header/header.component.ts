@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
   availProducts = ['sunglasses', 'caps', 'hood'];
   options!: Observable<string[]>;
   searchBox = new FormControl('');
+  userDetail!: string;
 
   ngOnInit(): void {
     this._dataService.itemsIncart_sub.subscribe({
@@ -41,6 +42,15 @@ export class HeaderComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
+
+    this._dataService.user_name.subscribe({
+      next: (req: any) => {
+        if (req) {
+          this.userDetail = req[0];
+        }
+      }
+    })
+
 
   }
 

@@ -30,9 +30,13 @@
             <mat-icon [matBadge]="itemsIncart" matBadgePosition="after" matBadgeColor="accent"
                 [matBadgeHidden]="itemsIncart==0" matBadgeOverlap="false">shopping_cart_checkout</mat-icon>
         </button>
-        <button mat-icon-button aria-label="profile icon" class="!w-12">
+        <button mat-icon-button [matMenuTriggerFor]="profile" aria-label="profile icon" class="!w-12">
             <mat-icon>account_circle</mat-icon>
         </button>
+        <mat-menu #profile="matMenu">
+            <button mat-menu-item>Hi {{userDetail}}</button>
+            <button mat-menu-item>Logout</button>
+        </mat-menu>
     </div>
 
     <!-- <div class="w-full text-right">

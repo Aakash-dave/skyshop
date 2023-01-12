@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../servicesDB/data.service';
 
@@ -28,6 +28,8 @@ export class OrderComponent implements OnInit {
   discount: number = 5;
   cartTotal: number = 0;
 
+  userDetail: string[] = ['Please Login', ''];
+
   constructor(private _dataService: DataService,
     private _router: Router) {
     this._dataService.cartItemId_sub.subscribe({
@@ -39,7 +41,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.cartIds = [1, 2, 3, 4];
+    // this.cartIds = [1, 2, 3, 4];  // temp
 
     this._dataService.getcartItems(this.cartIds).subscribe({
       next: (req: any) => {
@@ -56,6 +58,17 @@ export class OrderComponent implements OnInit {
     this.cartIds.forEach(ele => {
       this.cartQuantity.set(ele, 1);
     })
+
+    // user details from local storage
+    if (localStorage.getItem('user_name')) {
+      this._dataService.user_name.subscribe({
+        next: (req: any) => {
+          this.userDetail = req;
+        }
+      });
+    }
+
+
   }
 
   increment(item_id: number, price: string) {

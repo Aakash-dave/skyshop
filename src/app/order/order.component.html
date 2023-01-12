@@ -1,15 +1,16 @@
-<main class="flex justify-center flex-row pt-6 gap-x-14 mb-4">
+<main class="flex justify-center flex-row pt-6 gap-x-14 mb-4" *ngIf="cartIds.length>0">
 
   <section class="flex-initial w-6/12 cart-items shadow-md">
     <address class="border-solid border border-b-0">
       <div class="p-2 text-base">
-        Deliver to: Aakash Dave, Vadodara
+        Deliver to: {{userDetail[0]}} {{userDetail[1]}}
       </div>
     </address>
     <div class="border-solid border border-b-0">
       <ng-container *ngFor="let item of cartProducts">
         <div class="flex justify-around flex-row gap-y-14 mb-5 mt-5">
-          <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5 cursor-pointer" (click)="openProduct(item.id, item.category)" />
+          <img src="/assets/{{item.category}}/{{item.url1}}" class="w-1/5 h-1/5 cursor-pointer"
+            (click)="openProduct(item.id, item.category)" />
           <div>
             <span class="text-lg cursor-pointer" (click)="openProduct(item.id, item.category)">{{item.name}}</span>
             <div>
@@ -50,8 +51,19 @@
       </div>
     </div>
     <hr />
-    <h2 class="inline-block p-2 !mb-0">Total Amount</h2><span class="p-1 float-right text-lg font-medium">&#8377;{{this.cartTotal}}</span>
+    <h2 class="inline-block p-2 !mb-0">Total Amount</h2><span
+      class="p-1 float-right text-lg font-medium">&#8377;{{this.cartTotal}}</span>
     <div class="border-b border-dashed"></div>
     <div class="pt-2"><button mat-raised-button color="accent" class="w-full h-12">PLACE ORDER</button></div>
   </section>
 </main>
+
+
+<div class="flex flex-col justify-center items-center gap-1 mt-4" *ngIf="cartIds.length==0">
+  <div class="max-w-md"><img src="../../assets/order/empty-cart.svg"></div>
+  <div class="text-lg text-slate-400">Your cart is empty</div>
+  <div> <a mat-button color="primary" routerLink="/">Back to Home</a></div>
+  <div>
+    <img width="20%" height="20%" src="../../assets/order/blobanimation.svg">
+  </div>
+</div>

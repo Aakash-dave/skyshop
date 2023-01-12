@@ -13,15 +13,15 @@ export class AppComponent implements OnInit {
 
   @ViewChild('sidenav', { static: true }) public sidenav!: MatDrawer;
 
-  constructor(private store: DataService,
+  constructor(private _dataService: DataService,
     private _uiService: ViewInteractionService) {
   }
 
   ngOnInit(): void {
-    this.store.init();
-
+    // localStorage.clear();
+    this._dataService.init(); // store
     this._uiService.setSidenav(this.sidenav);
-
+    this._dataService.checkLocalStorage();
   }
 
 }

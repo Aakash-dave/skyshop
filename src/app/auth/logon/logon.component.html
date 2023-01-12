@@ -2,7 +2,7 @@
 
 <div mat-dialog-content class="mat_dialog_content">
     <label class="text-base">Login with basic details, We will remember you next time.</label><br><br>
-    <form [formGroup]="logonForm" (ngSubmit)="logon_submit()">
+    <form [formGroup]="logonForm">
         <mat-form-field appearance="outline">
             <mat-label>Your name</mat-label>
             <input matInput id="user_name" #user_name formControlName="user_name">
@@ -13,7 +13,7 @@
         </mat-form-field>
         <br>
         <button mat-raised-button color="primary" type="submit"
-            [disabled]="user_name.value.length==0 || user_country.value.length==0">Login</button>
+            [disabled]="user_name.value.length==0 || user_country.value.length==0" (click)="logon_submit()">Login</button>
         <br><br>
         <hr>
         <br>
@@ -48,6 +48,6 @@
     </form>
 </div>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" [disabled]="avtarLabel==null">Avatar login</button>
+    <button mat-raised-button color="primary" [disabled]="avtarLabel==null" (click)="avatarLogin()">Avatar login</button>
     <button mat-raised-button color="primary" mat-dialog-close>Close</button>
 </div>

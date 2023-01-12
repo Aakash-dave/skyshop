@@ -86,7 +86,9 @@ export class LandingContentComponent implements OnInit {
     this._activatedRoute.params.subscribe(path => {
       // console.log(path);
 
-      if (!path['cat']) {
+      const existingUser = localStorage.getItem('user_name');
+
+      if (!path['cat'] && existingUser == null) {
         // Dialog setup
         this._dialogRef.open(LogonComponent, {
           width: '35%',
@@ -94,9 +96,11 @@ export class LandingContentComponent implements OnInit {
           disableClose: true,
         });
       }
-      else {
+
+      if (path['cat']) {
         this.openCategory();
       }
+
 
     })
 

@@ -94,7 +94,7 @@ const saveUser = (request, response) => {
       response.status(500).json("something didn't work");
       throw error;
     }
-    response.status(200).json(results.rows);
+    response.status(200).json('OK!');
   });
 };
 

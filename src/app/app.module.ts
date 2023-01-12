@@ -32,6 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 // Components
 import { FooterComponent } from './footer/footer.component';
@@ -72,6 +74,7 @@ import { OrderComponent } from './order/order.component';
     MatDialogModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatMenuModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
