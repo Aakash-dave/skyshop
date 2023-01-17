@@ -14,14 +14,14 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-mini-fab color="primary" (click)="addToCart(item.id)">
-          <mat-icon>{{alreadyInCart(item.id)}}</mat-icon>
+          <mat-icon title="Cart">{{alreadyInCart(item.id)}}</mat-icon>
         </button>
         <span class="rating_svg" *ngIf="showRatingOnItem == item.id && showRatingbtn">
           <mat-icon>{{ratingEmoji[item.rating]}}</mat-icon>
         </span>
 
         <button mat-mini-fab color="primary" class="product_rating" (click)="showRating(item.id)">
-          <mat-icon #ratingBtn>star_half</mat-icon>
+          <mat-icon #ratingBtn title="overall rating">star_half</mat-icon>
         </button>
       </mat-card-actions>
     </mat-card>

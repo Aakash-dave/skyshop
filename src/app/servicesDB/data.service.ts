@@ -29,7 +29,7 @@ export class DataService {
     return this.http.get(`${url}${cat}`);
   }
 
-  getSimilarProducts(cat: string) {
+  getSimilarProducts(cat: string, exceptId: string) {
     let url = url_db.similarProducts;
     return this.http.get(`${url}${cat}`);
   }

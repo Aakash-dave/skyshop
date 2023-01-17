@@ -50,8 +50,6 @@ export class HeaderComponent implements OnInit {
         }
       }
     })
-
-
   }
 
   menuClicked() {
@@ -73,6 +71,10 @@ export class HeaderComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.availProducts.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  clearSession() {
+    localStorage.clear();
   }
 
 }

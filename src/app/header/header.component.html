@@ -35,7 +35,7 @@
         </button>
         <mat-menu #profile="matMenu">
             <button mat-menu-item>Hi {{userDetail}}</button>
-            <button mat-menu-item>Logout</button>
+            <button mat-menu-item (click)="clearSession()">Logout</button>
         </mat-menu>
     </div>
 

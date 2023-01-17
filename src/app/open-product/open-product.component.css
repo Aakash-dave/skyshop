@@ -104,6 +104,7 @@ ul {
     margin-right: 2px;
     color: white !important;
     font-weight: 400 !important;
+    font-size: medium;
 }
 
 .buy_btn_left>mat-icon {
@@ -139,24 +140,6 @@ ul {
     overflow: hidden;
 }
 
-/* .similar_section {
-    position: relative;
-    width: 100%;
-    white-space: nowrap;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-overflow-scrolling: touch;
-} */
-
-/* .similar_cards {
-    display: inline-block;
-    padding: 1em 2em;
-    min-width: 25%;
-    overflow: hidden;
-} */
-
 .scroll-images {
     box-sizing: border-box;
     white-space: nowrap;
@@ -181,3 +164,7 @@ ul {
     z-index: 9999;
     transform: translate(0, -50%);
 }
+
+/* h2 {
+    color: #446666;
+} */

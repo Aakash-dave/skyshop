@@ -30,6 +30,7 @@ const getInterestedProducts = (request, response) => {
 const getSimilarProducts = (request, response) => {
   // console.log(request.params.cat);
   const category = request.params.cat;
+  // const exceptId = request.params.except;
 
   client$.query(
     `select * from products where category in ('${category}') ORDER BY RANDOM() LIMIT 7;`,

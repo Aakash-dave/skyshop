@@ -77,7 +77,7 @@ export class OpenProductComponent implements OnInit {
     this._route.paramMap.subscribe(params => {
       this.productId = params.get('pid') || '';
       this.productCat = params.get('cat') || '';
-      console.log(this.productCat);
+      // console.log(this.productCat);
     })
 
     this._opened_product_ = this._dataService.allProducts_.pipe(
@@ -111,7 +111,7 @@ export class OpenProductComponent implements OnInit {
     })
 
     // Similar section
-    this._dataService.getSimilarProducts(this.productCat).subscribe({
+    this._dataService.getSimilarProducts(this.productCat, this.productId).subscribe({
       next: (response: any) => {
         this._similar_products_ = response;
       },
@@ -164,8 +164,6 @@ export class OpenProductComponent implements OnInit {
     this._dataService.itemsIncart_sub.next(this.itemsInCart);
   }
 
-
-
   leftScroll(index: number) {
     const ele = document.querySelectorAll('.scroll-images')[index];
     ele?.scrollBy(-250, 0);
@@ -174,6 +172,10 @@ export class OpenProductComponent implements OnInit {
   rightScroll(index: number) {
     const ele = document.querySelectorAll('.scroll-images')[index];
     ele?.scrollBy(250, 0);
+  }
+
+  checkOut() {
+    this._router.navigate(['orders']);
   }
 
 }
