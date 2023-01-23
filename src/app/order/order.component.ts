@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit {
   cartIds!: number[];
   cartProducts: IOrderDetail[] = [];
   cartQuantity = new Map();
+  itemsInCart!: number;
 
   cartPrice: number = 0;
   deliveryCharge: number = 0;
@@ -99,14 +100,27 @@ export class OrderComponent implements OnInit {
 
   removeCartItem(idToRemove: number) {
     this.cartProducts = this.cartProducts.filter((ele: any) => ele.id !== idToRemove);
-    this.cartIds = this.cartIds.filter((ele: any) => ele.id !== idToRemove);
+    this.cartIds = this.cartIds.filter((ele: any) => ele != idToRemove);
     this._dataService.cartItemId_sub.next(this.cartIds);
+
+    let items = this.getCartSize() - 1;
+    this._dataService.itemsIncart_sub.next(items);
+
     this.calTotalPrice();
     this.recalTotal();
   }
 
   openProduct(id: number, cat: string) {
     this._router.navigate(['product', id, cat]);
+  }
+
+  getCartSize(): number {
+    this._dataService.itemsIncart_sub.subscribe({
+      next: (req) => {
+        this.itemsInCart = req;
+      }
+    });
+    return this.itemsInCart;
   }
 
 }

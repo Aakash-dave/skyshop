@@ -166,12 +166,12 @@ export class OpenProductComponent implements OnInit {
 
   leftScroll(index: number) {
     const ele = document.querySelectorAll('.scroll-images')[index];
-    ele?.scrollBy(-250, 0);
+    ele?.scrollBy(-270, 0);
   }
 
   rightScroll(index: number) {
     const ele = document.querySelectorAll('.scroll-images')[index];
-    ele?.scrollBy(250, 0);
+    ele?.scrollBy(270, 0);
   }
 
   checkOut() {

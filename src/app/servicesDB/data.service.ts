@@ -31,7 +31,7 @@ export class DataService {
 
   getSimilarProducts(cat: string, exceptId: string) {
     let url = url_db.similarProducts;
-    return this.http.get(`${url}${cat}`);
+    return this.http.get(`${url}${cat}/${exceptId}`);
   }
 
   openCategory(cat: string) {

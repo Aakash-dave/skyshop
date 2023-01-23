@@ -30,10 +30,21 @@ const getInterestedProducts = (request, response) => {
 const getSimilarProducts = (request, response) => {
   // console.log(request.params.cat);
   const category = request.params.cat;
-  // const exceptId = request.params.except;
+  const exceptId = request.params.except;
+
+  const schema = Joi.object({
+    category: Joi.string().min(2).max(50).required(),
+    exclude: Joi.number().min(1).max(50).required(),
+  });
+
+  const result = schema.validate({ category: category, exclude: exceptId });
+
+  if (result.error) {
+    return response.status(400).json("Bad request." + result.error);
+  }
 
   client$.query(
-    `select * from products where category in ('${category}') ORDER BY RANDOM() LIMIT 7;`,
+    `select * from products where category in ('${category}') and id not in ('${exceptId}') ORDER BY RANDOM() LIMIT 7;`,
     (error, results) => {
       if (error) {
         throw error;
@@ -78,18 +89,17 @@ const saveUser = (request, response) => {
     user_agent: Joi.string().min(2).max(150).required(),
     client_lang: Joi.string().min(1).max(10).required(),
   });
- 
-  const result = schema.validate(request.body);  
+
+  const result = schema.validate(request.body);
 
   if (result.error) {
-    return response.status(400).json("Bad request."+ result.error);
+    return response.status(400).json("Bad request." + result.error);
   }
 
   // console.log(JSON.stringify(Object.values(request.body)));
 
   const query_ = 'insert into users (user_name, user_country, user_agent, client_lang) VALUES ($1, $2, $3, $4)';
-  const values = request.body;
-  
+
   client$.query(query_, [...Object.values(request.body)], (error, results) => {
     if (error) {
       response.status(500).json("something didn't work");

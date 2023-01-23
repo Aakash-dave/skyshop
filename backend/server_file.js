@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 // app routes
 app.get("/products", routes.getProducts);
 app.get("/interested-products/:cat", routes.getInterestedProducts);
-app.get("/similar-products/:cat", routes.getSimilarProducts);
+app.get("/similar-products/:cat/:except", routes.getSimilarProducts);
 app.get("/category/:cat", routes.getCategory);
 //order
 app.post("/cartitems", routes.getCartItems);
