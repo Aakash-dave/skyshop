@@ -28,10 +28,11 @@ app.get("/products", routes.getProducts);
 app.get("/interested-products/:cat", routes.getInterestedProducts);
 app.get("/similar-products/:cat/:except", routes.getSimilarProducts);
 app.get("/category/:cat", routes.getCategory);
-//order
 app.post("/cartitems", routes.getCartItems);
-
-//save
 app.post("/saveusers", routes.saveUser);
+
+// app.get("/product/:id/:cat", function () {
+//   res.sendFile("index.html", { root: '.' });
+// });
 
 app.listen(PORT, () => console.log(`Your server is running on port ${PORT}`));

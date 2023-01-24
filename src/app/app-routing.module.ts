@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'category/:cat', component: LandingContentComponent,
   },
-  
+
   {
     path: 'orders', component: OrderComponent,
   },
@@ -25,6 +25,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

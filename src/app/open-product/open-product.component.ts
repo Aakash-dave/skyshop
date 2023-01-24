@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../servicesDB/data.service';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ViewInteractionService } from '../servicesUI/view-interaction.service';
@@ -18,7 +18,7 @@ export class OpenProductComponent implements OnInit {
   // @ViewChild('scrollRight', { static: false }) private scrollRightbtn!: ElementRef;
 
   // Opened products
-  _opened_product_ !: any;
+  _opened_product_ !: Observable<any>;
   product_details: any;
   productId !: string;
   productCat !: string;
@@ -80,13 +80,16 @@ export class OpenProductComponent implements OnInit {
       // console.log(this.productCat);
     })
 
+
     this._opened_product_ = this._dataService.allProducts_.pipe(
       map((items: any) => items
         .filter((oneItem: any) => oneItem.id == this.productId))
     );
+
     // Opened product
     this._opened_product_.subscribe({
       next: (res: any) => {
+        console.log(res);
         this.product_details = res[0];
         this.main_Image_name = res[0].url1;
         this.main_Image_path = `../assets/${this.product_details.category}/${this.main_Image_name}`;
@@ -177,5 +180,6 @@ export class OpenProductComponent implements OnInit {
   checkOut() {
     this._router.navigate(['orders']);
   }
+
 
 }
