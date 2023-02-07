@@ -1,6 +1,9 @@
-import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../servicesDB/data.service';
+import { LogonComponent } from '../auth/logon/logon.component'; // dialog page
+import { MatDialog } from '@angular/material/dialog';
+import { ThankyouComponent } from '../thankyou/thankyou.component';
 
 export interface IOrderDetail {
   id: number,
@@ -17,7 +20,7 @@ export interface IOrderDetail {
   styleUrls: ['./order.component.css'],
 })
 
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, AfterViewInit {
 
   cartIds!: number[];
   cartProducts: IOrderDetail[] = [];
@@ -28,11 +31,14 @@ export class OrderComponent implements OnInit {
   deliveryCharge: number = 0;
   discount: number = 5;
   cartTotal: number = 0;
+  deliveryDays: number = 0;
 
   userDetail: string[] = ['Please Login', ''];
 
-  constructor(private _dataService: DataService,
-    private _router: Router) {
+  constructor(
+    private _dataService: DataService,
+    private _router: Router,
+    private _dialogRef: MatDialog) {
     this._dataService.cartItemId_sub.subscribe({
       next: (req) => {
         this.cartIds = req;
@@ -60,6 +66,11 @@ export class OrderComponent implements OnInit {
       this.cartQuantity.set(ele, 1);
     })
 
+    this.getLoggedInUser();
+
+  }
+
+  getLoggedInUser() {
     // user details from local storage
     if (localStorage.getItem('user_name')) {
       this._dataService.user_name.subscribe({
@@ -68,8 +79,10 @@ export class OrderComponent implements OnInit {
         }
       });
     }
+  }
 
-
+  isloggnedIn() {
+    return localStorage.getItem('user_name');
   }
 
   increment(item_id: number, price: string) {
@@ -122,5 +135,36 @@ export class OrderComponent implements OnInit {
     });
     return this.itemsInCart;
   }
+
+  logon() {
+    const dialog = this._dialogRef.open(LogonComponent, {
+      width: '35%',
+      height: '80%',
+      disableClose: true,
+    });
+
+    dialog.afterClosed().subscribe({
+      next: () => this.getLoggedInUser(),
+    });
+
+  }
+
+  placeOrder() {
+    const dialog = this._dialogRef.open(ThankyouComponent, {
+    });
+
+    dialog.afterClosed().subscribe({
+      next: () => {
+        this._dataService.itemsIncart_sub.next(0);
+        this._dataService.cartItemId_sub.next([]);
+        this._router.navigate(['/']);
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.deliveryDays = Math.floor((Math.random() * 10) + 1);
+  }
+
 
 }

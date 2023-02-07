@@ -44,6 +44,7 @@ import { HeaderComponent } from './header/header.component';
 import { LogonComponent } from './auth/logon/logon.component';
 import { OpenProductComponent } from './open-product/open-product.component';
 import { OrderComponent } from './order/order.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 
@@ -56,6 +57,7 @@ import { OrderComponent } from './order/order.component';
     LogonComponent,
     OpenProductComponent,
     OrderComponent,
+    ThankyouComponent,
   ],
   imports: [
     NgxImageZoomModule,

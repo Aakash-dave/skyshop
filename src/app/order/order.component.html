@@ -28,7 +28,7 @@
               </div>
             </div>
           </div>
-          <span class="text-sm text-slate-500">Delivery within 6 working days</span>
+          <span class="text-sm text-slate-500">Delivery within {{deliveryDays}} working days</span>
         </div>
         <hr>
       </ng-container>
@@ -54,7 +54,10 @@
     <h2 class="inline-block p-2 !mb-0">Total Amount</h2><span
       class="p-1 float-right text-lg font-medium">&#8377;{{this.cartTotal}}</span>
     <div class="border-b border-dashed"></div>
-    <div class="pt-2"><button mat-raised-button color="accent" class="w-full h-12">PLACE ORDER</button></div>
+    <div class="pt-2">
+      <button mat-raised-button color="accent" class="w-full h-12" *ngIf="isloggnedIn()" (click)="placeOrder()">PLACE ORDER</button>
+      <button mat-raised-button color="accent" class="w-full h-12" *ngIf="!isloggnedIn()" (click)="logon()">LOGIN TO PLACE ORDER</button>
+    </div>
   </section>
 </main>
 

@@ -54,6 +54,7 @@ export class OpenProductComponent implements OnInit {
         this.cartItemIds = req;
       }
     });
+    // this._dataService.init();
   }
 
   ngOnInit(): void {
@@ -78,7 +79,7 @@ export class OpenProductComponent implements OnInit {
       this.productId = params.get('pid') || '';
       this.productCat = params.get('cat') || '';
       // console.log(this.productCat);
-    })
+    });
 
 
     this._opened_product_ = this._dataService.allProducts_.pipe(
