@@ -90,7 +90,7 @@ export class OpenProductComponent implements OnInit {
     // Opened product
     this._opened_product_.subscribe({
       next: (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.product_details = res[0];
         this.main_Image_name = res[0].url1;
         this.main_Image_path = `../assets/${this.product_details.category}/${this.main_Image_name}`;

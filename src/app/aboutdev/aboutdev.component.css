@@ -1,0 +1,45 @@
+* {
+  color: whitesmoke;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.parent-container {
+  display: grid;
+  grid-template-columns: repeat(1, 100vw);
+  grid-template-rows: repeat(5, 100vh);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* important */
+  height: 100vh;
+  /* scroll-snap-points-y: repeat(100vh); */
+  scroll-snap-type: y mandatory;
+}
+
+section:nth-child(odd) {
+  background: #2d2b30;
+}
+
+section:nth-child(even) {
+  background: #202130;
+}
+
+.child {
+  scroll-snap-align: start;
+  /* position: relative; */
+}
+
+.x-font-curve {
+  font-family: 'serif';
+}
+
+.x-font-regular {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.x-font-primary {
+  color: whitesmoke;
+}
+
+.x-font-secondary {
+  color: goldenrod;
+}

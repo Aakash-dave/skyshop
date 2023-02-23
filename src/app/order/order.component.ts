@@ -4,6 +4,7 @@ import { DataService } from '../servicesDB/data.service';
 import { LogonComponent } from '../auth/logon/logon.component'; // dialog page
 import { MatDialog } from '@angular/material/dialog';
 import { ThankyouComponent } from '../thankyou/thankyou.component';
+import { ViewInteractionService } from '../servicesUI/view-interaction.service';
 
 export interface IOrderDetail {
   id: number,
@@ -38,7 +39,8 @@ export class OrderComponent implements OnInit, AfterViewInit {
   constructor(
     private _dataService: DataService,
     private _router: Router,
-    private _dialogRef: MatDialog) {
+    private _dialogRef: MatDialog,
+    private _uiService: ViewInteractionService) {
     this._dataService.cartItemId_sub.subscribe({
       next: (req) => {
         this.cartIds = req;
@@ -49,6 +51,8 @@ export class OrderComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
 
     // this.cartIds = [1, 2, 3, 4];  // temp
+
+    this._uiService.closeSideNav();
 
     this._dataService.getcartItems(this.cartIds).subscribe({
       next: (req: any) => {

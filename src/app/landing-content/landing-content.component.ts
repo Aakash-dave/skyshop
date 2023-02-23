@@ -79,6 +79,10 @@ export class LandingContentComponent implements OnInit {
     this.showRatingOnItem = 0;
   } // when animation ends reset button
 
+  // @HostListener('window:scroll') onScrollHost(e: Event): void {
+  //   console.log(this.getYPosition(e));
+  // }
+
   ngOnInit(): void {
 
     // this._uiService.setSidenav(this.sidenav);
@@ -109,6 +113,10 @@ export class LandingContentComponent implements OnInit {
     this.allProducts = from_Strore;
 
   }// ngOnInit
+
+  // getYPosition(e: Event): number {
+  //   return (e.target as Element).scrollTop;
+  // }
 
   openProduct(id: number, cat: string) {
     // this.route_.navigate(['product'], {queryParams: {pid: id, cat:cat } });

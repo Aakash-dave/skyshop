@@ -31,8 +31,10 @@ app.get("/category/:cat", routes.getCategory);
 app.post("/cartitems", routes.getCartItems);
 app.post("/saveusers", routes.saveUser);
 
-// app.get("/product/:id/:cat", function () {
-//   res.sendFile("index.html", { root: '.' });
-// });
+function redirectRouterLessonUnmatched(req, res) {
+  res.sendFile("index.html", { root: './index.html' });
+}
+app.use(redirectRouterLessonUnmatched);
+
 
 app.listen(PORT, () => console.log(`Your server is running on port ${PORT}`));

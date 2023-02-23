@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.clear();
+    // localStorage.clear();
     this._dataService.init(); // store
     this._uiService.setSidenav(this.sidenav);
     this._dataService.checkLocalStorage();

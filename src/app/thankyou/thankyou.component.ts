@@ -9,12 +9,10 @@ export class ThankyouComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  orderNumber: number = 0;
 
-  orderNumber()
-  {
-    return Math.floor((Math.random() * 100) + 100000);
+  ngOnInit(): void {
+    this.orderNumber = Math.floor((Math.random() * 100) + 100000);
   }
 
 }
