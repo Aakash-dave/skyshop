@@ -23,9 +23,9 @@ section:nth-child(even) {
   background: #202130;
 }
 
-.child {
+section {
+  position: relative;
   scroll-snap-align: start;
-  /* position: relative; */
 }
 
 .x-font-curve {
@@ -36,10 +36,21 @@ section:nth-child(even) {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.x-font-primary {
+.x-font-primary-color {
   color: whitesmoke;
 }
 
-.x-font-secondary {
-  color: goldenrod;
+.x-font-secondary-color {
+  color: #e1b035;
+}
+
+.page-1 aside {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+}
+
+.about > div {
+  top: 10%;
+  left: 10%;
 }
