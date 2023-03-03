@@ -1,3 +1,5 @@
+/* https://maketintsandshades.com/#e1b035 */
+
 * {
   color: whitesmoke;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -53,4 +55,26 @@ section {
 .about > div {
   top: 10%;
   left: 10%;
+}
+
+.stack-card{
+  width: 12rem;
+  height: 11rem;
+  background-color: #2d2b30;
+  box-shadow: 0px 0px 0px 1px #2d2b30;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.stack-card > img {
+  /* height: 70%;
+  width: 70%; */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.stack-card:hover {
+  background-color: #e7c05d;
 }
