@@ -1,5 +1,12 @@
 /* https://maketintsandshades.com/#e1b035 */
 
+/* 
+larger font - text-6xl 3.75 - 60px
+large font - text-2xl 1.75 - 24px
+medium font - text-lg 1.25 18px
+small font - text-base 1 16px
+ */
+
 * {
   color: whitesmoke;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,18 +53,25 @@ section {
   color: #e1b035;
 }
 
+.page-1 {
+  background-image: url('/assets/banner/banner-color.png') !important;
+  background-size: contain !important;
+  background-position: right !important;
+  background-repeat: no-repeat !important;
+}
+
 .page-1 aside {
   position: absolute;
   top: 30%;
   left: 15%;
 }
 
-.about > div {
+.about>div {
   top: 10%;
   left: 10%;
 }
 
-.stack-card{
+.stack-card {
   width: 12rem;
   height: 11rem;
   background-color: #2d2b30;
@@ -66,7 +80,7 @@ section {
   transition: all 0.5s;
 }
 
-.stack-card > img {
+.stack-card>img {
   /* height: 70%;
   width: 70%; */
   position: relative;
@@ -77,4 +91,52 @@ section {
 
 .stack-card:hover {
   background-color: #e7c05d;
+}
+
+.round-bullet {
+  height: 2rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px #f1d99e;
+}
+
+.year-shape {
+  color: whitesmoke;
+  background: #4d4d59;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 10%;
+  font-weight: 500;
+}
+
+.exp-segment {
+  color: #c0bfc1;
+}
+
+.portfolio-card {
+  width: 22rem;
+  height: 22rem;
+  background-color: #2d2b30;
+  box-shadow: 0px 0px 0px 1px #2d2b30;
+  border-radius: 3px;
+  transition: all 0.5s;
+  position: relative;
+}
+
+.portfolio-card img {}
+
+.portfolio-card img:hover {
+
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  opacity: 0.7;
+}
+
+.portfolio-card div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
 }
