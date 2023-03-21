@@ -118,25 +118,68 @@ section {
   height: 22rem;
   background-color: #2d2b30;
   box-shadow: 0px 0px 0px 1px #2d2b30;
-  border-radius: 3px;
-  transition: all 0.5s;
-  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  /* transition: all 0.8s; */
 }
 
-.portfolio-card img {}
+.portfolio-card img {
+  transition: all 0.5s;
+}
 
 .portfolio-card img:hover {
-
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   /* Safari 6.0 - 9.0 */
   opacity: 0.7;
 }
 
-.portfolio-card div {
+.portfolio-card p {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1rem;
+  font-size: 4rem;
+  line-height: 4rem;
+  opacity: 0.1;
+  transition: all 0.5s;
+}
+
+.portfolio-card:hover p {
+  opacity: 1;
+}
+
+.demo-1-detail p {
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  opacity: 0.0;
+  transition: all 0.3s;
+}
+
+.portfolio-card:hover .demo-1-detail p {
+  opacity: 1;
+  backdrop-filter: brightness(0.3);
+  padding: 1rem;
+  width: 60%;
+  text-align: center;
+}
+
+.visit-btn {
+  padding: 0.5rem;
+  border: 1px solid #e1b035;
+  /* background-color: #e1b035; */
+  font-size: smaller;
+  border-radius: 5%;
+  transform: scale(0.8);
+}
+
+.visit-btn:hover {
+  box-shadow: 0px 0px 5px 25px inset #e1b035;
+}
+
+.portfolio-card:has(.demo-1-detail p:hover) img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  opacity: 0.7;
 }
