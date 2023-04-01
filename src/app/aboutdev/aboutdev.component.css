@@ -24,11 +24,13 @@ small font - text-base 1 16px
   scroll-snap-type: y mandatory;
 }
 
-section:nth-child(odd) {
+section:nth-child(2n+3) {
+  /* selects even starting with 3rd element */
   background: #2d2b30;
 }
 
-section:nth-child(even) {
+section:nth-child(even),
+.contact-box {
   background: #202130;
 }
 
@@ -53,10 +55,12 @@ section {
   color: #e1b035;
 }
 
+
 .page-1 {
+  background: #2d2b30;
   background-image: url('/assets/banner/banner-color.png') !important;
-  background-size: contain !important;
-  background-position: right !important;
+  background-size: contain;
+  background-position: right bottom !important;
   background-repeat: no-repeat !important;
 }
 
@@ -66,8 +70,12 @@ section {
   left: 15%;
 }
 
+.about {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .about>div {
-  top: 10%;
   left: 10%;
 }
 
@@ -111,6 +119,10 @@ section {
 
 .exp-segment {
   color: #c0bfc1;
+}
+
+.translate-experience {
+  /* transform: translate(10%, 0%); */
 }
 
 .portfolio-card {
@@ -182,4 +194,77 @@ section {
   -webkit-filter: grayscale(100%);
   /* Safari 6.0 - 9.0 */
   opacity: 0.7;
+}
+
+.contact-card {
+  min-width: 40%;
+  background-color: #2d2b30;
+  min-height: 4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 4px 0px #eeeec6;
+}
+
+.contact-card:hover {
+  box-shadow: 0px 0px 4px 0px #e1b035;
+}
+
+.social-icon {
+  bottom: 10%;
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+
+/* media queries */
+
+@media screen and (min-width:90em) {
+  html,
+  body {
+    font-size: 100%;
+  }
+}
+
+@media screen and (min-width:90em) {
+  html,
+  body {
+    font-size: 100%;
+  }
+}
+
+
+@media screen and (min-height:46em) {
+
+  /* full screen height > 731  */
+  .page-1 {
+    background-size: 95% auto !important;
+  }
+
+  .page-1 aside {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+  }
+
+  .about {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-2 main {
+    gap: 3rem;
+  }
+
+  .page-2 main aside:last-child > div {
+    margin: 0.5rem;
+  }
+  
+  .page-3 aside {
+    margin-bottom: 4.5rem;
+    margin-top: 2rem;
+  }
+
+  .page-5 fieldset > div:first-of-type {
+    margin-top: 4rem;
+  }
+
 }

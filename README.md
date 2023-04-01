@@ -1,10 +1,11 @@
+
 # SkyShop
 
-*/ Work in progress as of Nov 2022 */
+Work in progress as of March 2023
 
-# About the project
+## About the project
 
-This is a demo/portfolio project of E-commerce shopping website and other details about developer.
+Objective of this project is to add Demo to the portfolio and maintain my resume online.
 
 ## Build with ##
 
@@ -16,3 +17,9 @@ This is a demo/portfolio project of E-commerce shopping website and other detail
 * Back-end
     *  Nodejs [expressjs]
     *  PostgreSQL        
+
+    
+## Authors
+
+- [@aakashdave](https://www.github.com/aakash-dave)
+
