@@ -31,18 +31,6 @@ mat-drawer {
   padding: 20px;
 }
 
-
-
-@media only screen and (max-width: 620px) {
-
-  /* For mobile phones: */
-  .menu,
-  .main,
-  .right {
-    /* width: 100%; */
-  }
-}
-
 /*  Zoom library */
 .ngxImageZoomContainer {
   width: auto !important;
@@ -52,4 +40,48 @@ mat-drawer {
 .ngxImageZoomFullContainer.ngxImageZoomLensEnabled {
   border: 1px #777ac4 !important;
   border-style: dotted !important;
+}
+
+/* media queries */
+/* 
+<2560  | 160em 4k
+<1440 | 90em large laptop
+<1024 | 64em small laptop
+<768 | 48em tablet
+<425 | 26.5em large mobile
+*/
+
+/* @media screen and (max-width:160em) {
+  html,
+  body {
+    font-size: 100%;
+  }
+} */
+
+@media screen and (max-width:90em) {
+  html,
+  body {
+    font-size: 100%;
+  }
+}
+
+@media screen and (max-width:64em) {
+  html,
+  body {
+    font-size: 85%;
+  }
+}
+
+@media screen and (max-width:48em) {
+  html,
+  body {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width:26.8em) {
+  html,
+  body {
+    font-size: 50%;
+  }
 }
