@@ -231,7 +231,7 @@ section {
 /* between 2560 <> 1440 Large PC screen*/
 @media screen and (max-width:90em) {
   .x-font-primary-color {
-    color: red;
+    /* color: red; */
   }
 }
 
@@ -239,7 +239,7 @@ section {
 @media screen and (max-width:64em) {
 
   .x-font-primary-color {
-    color: blue;
+    /* color: blue; */
   }
 
   .page-1 {
@@ -287,19 +287,140 @@ section {
 /* between 1025 <> 768 Tablets*/
 @media screen and (max-width:48em) {
   .x-font-primary-color {
-    color: green;
+    /* color: green; */
   }
+
+  .page-1 {
+    background-size: cover;
+    background-position: 53%;
+  }
+
+  .page-1 aside {
+    position: absolute;
+    top: 32%;
+    left: 5%;
+    width: 35%;
+    text-align: center;
+  }
+
+  .page-2 main aside:last-child {
+    width: 90%;
+  }
+
+  .page-2 .stack-card {
+    width: 10rem;
+    height: 9rem;
+  }
+
+  .page-4 .portfolio-card {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .page-5 fieldset>div:first-of-type {
+    width: 100%;
+    /* margin-top: 4rem; */
+  }
+
+
 }
 
 /* between <425px L-Mobile */
 @media screen and (max-width:26.8em) {
   .x-font-primary-color {
-    color: aqua;
+    /* color: aqua; */
   }
+
+  .page-1 {
+    background-size: 87rem;
+    background-position: 70% bottom;
+  }
+
+  .page-1 aside {
+    position: absolute;
+    top: 9%;
+    left: 10%;
+    width: 100%;
+    text-align: unset;
+  }
+  
+  .page-2 .about {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .page-2 .about>div {
+    left: 6%;
+    width: 88%;
+  }
+
+  .page-2 main aside:last-child {
+    width: 92%;
+  }
+
+  .page-2 .stack-card {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .page-3 .translate-experience {
+    width: 86%;
+  }
+
+  .page-3 main div .year-shape span {
+    font-size: 1.25rem;
+  }
+
+  .page-3 main div div:last-child>span:nth-child(2) {
+    font-size: 1.25rem;
+  }
+
+  .page-3 main div div:last-child>span:last-child {
+    font-size: 1.32rem;
+  }
+
+  .page-4 main aside:last-child {
+    flex-direction: column;
+  }
+
+  .page-4 .portfolio-card {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .page-4 .portfolio-card:hover .demo-1-detail p {
+    width: 75%;
+  }
+
+  .page-4 .demo-1-detail p {
+    font-size: 1.5rem;
+  }
+
+  .page-4 .visit-btn {
+    font-size: large;
+  }
+
+  .page-5 fieldset>div:first-of-type {
+    width: 100%;
+    margin-top: 4rem;
+  }
+
+  .page-5 .contact-card {
+    min-width: 90%;
+    justify-content: start;
+  }
+
+  .page-5 .contact-card > img {
+    padding: 1.3rem;
+  }
+
+  .page-5 .contact-card div > a {
+    font-size: larger;
+  }
+
 }
 
 /* full screen height > 731  */
-@media screen and (min-height:46em) {
+@media screen and (min-height:46em) and (min-width:64em) {
   .page-1 {
     background-size: 95% auto !important;
   }

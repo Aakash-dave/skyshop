@@ -75,13 +75,13 @@ mat-drawer {
 @media screen and (max-width:48em) {
   html,
   body {
-    font-size: 70%;
+    font-size: 80%;
   }
 }
 
 @media screen and (max-width:26.8em) {
   html,
   body {
-    font-size: 50%;
+    font-size: 70%;
   }
 }
